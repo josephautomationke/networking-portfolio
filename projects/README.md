@@ -183,21 +183,14 @@ As the network engineer, I:
 
 ---
 
-## 📂 Project Structure
 
-```
-isp-customer-network/
-├── README.md
-├── topology/
-├── screenshots/
-└── configs/
 ```
 
 ---
 
 ## 📬 Contact
 
-* Email: [your-email@example.com](mailto:your-email@example.com)
-* GitHub: your-profile-link
+* Email: josephnjuguna.automation@gmail.com
+
 
 ---
