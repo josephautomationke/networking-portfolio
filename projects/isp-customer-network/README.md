@@ -1,196 +1,150 @@
 # 🌐 ISP Customer Network Deployment & Troubleshooting
 
+<p align="center">
+  <img src="./topology/topology.png" width="80%" />
+</p>
+
+---
+
 ## 🚀 Project Overview
 
-This project simulates a real-world Internet Service Provider (ISP) deployment for a small business. It demonstrates full network setup, service configuration, and structured troubleshooting of connectivity issues from internal users to a simulated internet.
+This project simulates a **real-world ISP network deployment** for a business environment.
+
+It demonstrates how networks are built, how failures happen, and how they are **systematically diagnosed and fixed**.
 
 ---
 
-## 📌 Scenario
+## 💼 Business Impact
 
-A business network experienced multiple issues:
-
-* Devices were not receiving IP addresses
-* Departments could not communicate
-* Internet access was unavailable
-
-As the network engineer, I:
-
-* Designed and deployed the network
-* Configured routing and services
-* Diagnosed and resolved all failures
+✔ Faster troubleshooting → Less downtime  
+✔ Structured diagnostics → No guesswork  
+✔ Reliable connectivity → Proper routing & NAT  
+✔ Reduced manual errors → Repeatable fixes  
 
 ---
 
-## 🧱 Network Architecture
+## 🧠 What This Project Covers
 
-### 🔹 Internal Network
-
-* VLAN 10 — HR
-* VLAN 20 — Sales
-* Layer 2 Switch (access + trunk)
-
-### 🔹 Routing Layer
-
-* Router-on-a-Stick (Inter-VLAN routing)
-* Subinterfaces for VLAN segmentation
-
-### 🔹 ISP Simulation
-
-* EDGE Router (customer gateway)
-* CORE Router (ISP backbone)
-* INTERNET Router (external simulation)
+- VLAN segmentation (HR / Sales)
+- Inter-VLAN Routing (Router-on-a-Stick)
+- DHCP configuration & troubleshooting
+- OSPF routing between routers
+- NAT (PAT) for internet access simulation
+- Real troubleshooting scenarios
 
 ---
 
-## ⚙️ Technologies Used
-
-* VLAN Segmentation
-* Inter-VLAN Routing
-* DHCP
-* OSPF
-* NAT (PAT)
-* Static Routing
-* Network Troubleshooting
+# 📸 Network Configuration & Troubleshooting Proof
 
 ---
 
-## 🔧 Key Configurations
+## 🔹 VLAN Configuration
 
-### VLANs
-
-* Created VLAN 10 and VLAN 20
-* Assigned switch ports
-* Configured trunk link
-
-### Routing
-
-* Configured subinterfaces for inter-VLAN routing
-
-### DHCP
-
-* Configured pools for automatic IP assignment
-
-### OSPF
-
-* Established neighbor adjacency between routers
-
-### NAT
-
-* Configured PAT for internet access
+<p align="center">
+  <img src="./screenshots/switch vlan brief.png" width="80%">
+</p>
 
 ---
 
-## 📸 Network Implementation & Results
+## 🔹 Inter-VLAN Routing (Router)
 
-### 🔹 VLAN Configuration
-
-![VLAN](screenshots/Vlan%20configurationf.png)
-
----
-
-### 🔹 DHCP Configuration
-
-![DHCP Config](screenshots/Configure%20DHCP%20.png)
+<p align="center">
+  <img src="./screenshots/inter vlan routing router.png" width="80%">
+</p>
 
 ---
 
-### 🔹 DHCP Working
+## 🔹 DHCP Configuration
 
-![DHCP Working](screenshots/dhcp%20working.png)
-
----
-
-### 🔹 Inter-VLAN Routing
-
-![Inter-VLAN](screenshots/inter%20vlan%20routing%20router.png)
+<p align="center">
+  <img src="./screenshots/Configure DHCP .png" width="80%">
+</p>
 
 ---
 
-### 🔹 OSPF Configuration
+## 🔹 DHCP Failure → Diagnosis
 
-![OSPF](screenshots/ospf%20in%20router.png)
-
----
-
-### 🔹 Routing Verification
-
-![Routing](screenshots/routing%20confirmed.png)
+<p align="center">
+  <img src="./screenshots/dhcp not working fix.png" width="80%">
+</p>
 
 ---
 
-### 🔹 NAT Configuration
+## 🔹 DHCP Fixed
 
-![NAT](screenshots/NAT%20configuration.png)
-
----
-
-### 🔹 NAT Fixed
-
-![NAT Fixed](screenshots/fixed%20nat.png)
+<p align="center">
+  <img src="./screenshots/dhcp fixed.png" width="80%">
+</p>
 
 ---
 
-## 🛠 Troubleshooting Evidence
+## 🔹 OSPF Routing
 
-### 🔴 DHCP Failure (169.x.x.x)
-
-![DHCP Error](screenshots/dhcp%20not%20worrking%20fix.png)
-
-**Cause:** DHCP not reachable
-**Fix:** Corrected trunk and routing configuration
+<p align="center">
+  <img src="./screenshots/ospf in router.png" width="80%">
+</p>
 
 ---
 
-### 🔴 ACL / Connectivity Issue
+## 🔹 Routing Verification
 
-![ACL](screenshots/ACL%20troubleshoot.png)
-
-**Cause:** Traffic blocked / misconfiguration
-**Fix:** Adjusted rules and verified routing
-
----
-
-## ✅ Final Results
-
-* All devices received IP addresses
-* VLAN segmentation worked correctly
-* Inter-VLAN communication successful
-* OSPF routing stable
-* Internet simulation achieved
-* Network fully operational
+<p align="center">
+  <img src="./screenshots/routing confirmed.png" width="80%">
+</p>
 
 ---
 
-## 🧠 What I Learned
+## 🔹 NAT Configuration
 
-* How to design and segment enterprise networks
-* How to configure routing and NAT for real-world scenarios
-* How to troubleshoot using a step-by-step method
-* How to identify issues using CLI tools (`show`, `ping`, `traceroute`)
-* How to resolve Layer 1–Layer 3 network failures
+<p align="center">
+  <img src="./screenshots/NAT configuration.png" width="80%">
+</p>
 
 ---
 
-## 🎯 Key Skills Demonstrated
+## 🔹 NAT Fix
 
-* Network Design
-* Routing (Static + OSPF)
-* NAT (PAT)
-* DHCP Deployment
-* VLAN Configuration
-* Troubleshooting Methodology
+<p align="center">
+  <img src="./screenshots/fixed NAT.png" width="80%">
+</p>
 
 ---
 
+## 🔹 ACL Troubleshooting
 
-```
+<p align="center">
+  <img src="./screenshots/ACL troubleshoot.png" width="80%">
+</p>
 
 ---
 
-## 📬 Contact
+# ⚙️ How I Approach Problems
 
-* Email: josephnjuguna.automation@gmail.com
+1. Identify symptoms (no IP, no internet, no routing)
+2. Check Layer by Layer (L1 → L3)
+3. Validate configs (DHCP, VLANs, Routing)
+4. Isolate the issue
+5. Fix and verify
 
+---
+
+# 🎯 Key Takeaway
+
+This is not just a configuration project.
+
+👉 It proves I can:
+- Diagnose real network failures
+- Think logically under pressure
+- Restore systems step-by-step
+
+---
+
+# 📬 Want This For Your Network?
+
+I also build **automation systems that monitor networks and detect failures automatically.**
+
+👉 Reach out:
+- Email: josephnjuguna.automation@gmail.com
+- WhatsApp: +254115361894
 
 ---
