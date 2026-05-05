@@ -2,25 +2,23 @@
 
 ## 🚀 Project Overview
 
-This project simulates a real-world Internet Service Provider (ISP) deployment for a small business customer. It demonstrates end-to-end network setup, service configuration, and structured troubleshooting of multiple network failures.
-
-The goal was to design a functional network, deliver connectivity, and resolve issues affecting internal communication and internet access.
+This project simulates a real-world Internet Service Provider (ISP) deployment for a small business. It demonstrates full network setup, service configuration, and structured troubleshooting of connectivity issues from internal users to a simulated internet.
 
 ---
 
 ## 📌 Scenario
 
-A business customer reported multiple network issues:
+A business network experienced multiple issues:
 
-* Some devices were not receiving IP addresses
+* Devices were not receiving IP addresses
 * Departments could not communicate
 * Internet access was unavailable
 
-As the network engineer, I was responsible for:
+As the network engineer, I:
 
-* Building the network infrastructure
-* Configuring core services
-* Diagnosing and resolving connectivity issues
+* Designed and deployed the network
+* Configured routing and services
+* Diagnosed and resolved all failures
 
 ---
 
@@ -28,147 +26,172 @@ As the network engineer, I was responsible for:
 
 ### 🔹 Internal Network
 
-* VLAN 10 — HR Department
-* VLAN 20 — Sales Department
-* Layer 2 Switch (access + trunk ports)
+* VLAN 10 — HR
+* VLAN 20 — Sales
+* Layer 2 Switch (access + trunk)
 
 ### 🔹 Routing Layer
 
-* Router-on-a-Stick for Inter-VLAN routing
+* Router-on-a-Stick (Inter-VLAN routing)
 * Subinterfaces for VLAN segmentation
 
 ### 🔹 ISP Simulation
 
-* EDGE Router (customer-facing)
+* EDGE Router (customer gateway)
 * CORE Router (ISP backbone)
-* INTERNET Router (external network simulation)
+* INTERNET Router (external simulation)
 
 ---
 
-## ⚙️ Technologies Implemented
+## ⚙️ Technologies Used
 
-* VLAN segmentation
+* VLAN Segmentation
 * Inter-VLAN Routing
-* DHCP (Dynamic Host Configuration Protocol)
-* OSPF (Open Shortest Path First)
-* NAT (PAT - Port Address Translation)
+* DHCP
+* OSPF
+* NAT (PAT)
 * Static Routing
-* Basic Network Troubleshooting
+* Network Troubleshooting
 
 ---
 
-## 🔧 Key Configuration Highlights
+## 🔧 Key Configurations
 
-### VLAN Configuration
+### VLANs
 
-* Created VLAN 10 (HR) and VLAN 20 (Sales)
-* Assigned switch ports to appropriate VLANs
-* Configured trunk link to router
+* Created VLAN 10 and VLAN 20
+* Assigned switch ports
+* Configured trunk link
 
----
+### Routing
 
-### Inter-VLAN Routing
+* Configured subinterfaces for inter-VLAN routing
 
-* Implemented Router-on-a-Stick using subinterfaces
-* Enabled communication between VLANs
+### DHCP
 
----
+* Configured pools for automatic IP assignment
 
-### DHCP Configuration
+### OSPF
 
-* Configured DHCP pools per VLAN
-* Automatically assigned IP addresses, gateway, and DNS
+* Established neighbor adjacency between routers
 
----
+### NAT
 
-### OSPF Routing
-
-* Established adjacency between EDGE and CORE routers
-* Enabled dynamic route exchange
+* Configured PAT for internet access
 
 ---
 
-### NAT (Internet Access)
+## 📸 Network Implementation & Results
 
-* Configured PAT on EDGE router
-* Translated private IP addresses to public IP for internet access
+### 🔹 VLAN Configuration
 
----
-
-## 🛠 Troubleshooting Process
-
-A structured troubleshooting approach was used to identify and resolve multiple issues:
+![VLAN](screenshots/Vlan%20configurationf.png)
 
 ---
 
-### 🔴 Issue 1 — Devices Receiving 169.x.x.x Addresses
+### 🔹 DHCP Configuration
 
-**Cause:** DHCP requests not reaching the router
-**Diagnosis:** Verified VLANs and trunk configuration
-**Resolution:** Corrected trunk link between switch and router
+![DHCP Config](screenshots/Configure%20DHCP%20.png)
 
 ---
 
-### 🔴 Issue 2 — “Destination Host Unreachable”
+### 🔹 DHCP Working
 
-**Cause:** Missing routing path to external network
-**Diagnosis:** Checked routing table using `show ip route`
-**Resolution:** Configured default route toward CORE router
+![DHCP Working](screenshots/dhcp%20working.png)
 
 ---
 
-### 🔴 Issue 3 — No Internet Connectivity
+### 🔹 Inter-VLAN Routing
 
-**Cause:** CORE router lacked upstream path
-**Diagnosis:** Traced packet flow hop-by-hop
-**Resolution:** Added INTERNET router and configured routing
+![Inter-VLAN](screenshots/inter%20vlan%20routing%20router.png)
 
 ---
 
-### 🔴 Issue 4 — Network Still Not Responding
+### 🔹 OSPF Configuration
 
-**Cause:** Interface administratively down
-**Diagnosis:** Used `show ip interface brief`
-**Resolution:** Enabled interface using `no shutdown`
+![OSPF](screenshots/ospf%20in%20router.png)
+
+---
+
+### 🔹 Routing Verification
+
+![Routing](screenshots/routing%20confirmed.png)
+
+---
+
+### 🔹 NAT Configuration
+
+![NAT](screenshots/NAT%20configuration.png)
+
+---
+
+### 🔹 NAT Fixed
+
+![NAT Fixed](screenshots/fixed%20nat.png)
+
+---
+
+## 🛠 Troubleshooting Evidence
+
+### 🔴 DHCP Failure (169.x.x.x)
+
+![DHCP Error](screenshots/dhcp%20not%20worrking%20fix.png)
+
+**Cause:** DHCP not reachable
+**Fix:** Corrected trunk and routing configuration
+
+---
+
+### 🔴 ACL / Connectivity Issue
+
+![ACL](screenshots/ACL%20troubleshoot.png)
+
+**Cause:** Traffic blocked / misconfiguration
+**Fix:** Adjusted rules and verified routing
 
 ---
 
 ## ✅ Final Results
 
-* All devices successfully received IP addresses via DHCP
-* VLAN segmentation worked as expected
-* Inter-VLAN communication was fully functional
-* Internet simulation was successfully achieved
-* Network remained stable after fault resolution
+* All devices received IP addresses
+* VLAN segmentation worked correctly
+* Inter-VLAN communication successful
+* OSPF routing stable
+* Internet simulation achieved
+* Network fully operational
 
 ---
 
-## 📸 Project Evidence
+## 🧠 What I Learned
 
-The following screenshots are included in this project:
-
-* Network topology
-* DHCP address assignment
-* OSPF neighbor relationship
-* Successful connectivity tests (ping)
-* Troubleshooting steps and error outputs
+* How to design and segment enterprise networks
+* How to configure routing and NAT for real-world scenarios
+* How to troubleshoot using a step-by-step method
+* How to identify issues using CLI tools (`show`, `ping`, `traceroute`)
+* How to resolve Layer 1–Layer 3 network failures
 
 ---
 
-## 🧠 Key Skills Demonstrated
+## 🎯 Key Skills Demonstrated
 
-* Network design and segmentation
-* Routing (Static + OSPF fundamentals)
-* NAT configuration (PAT)
-* DHCP deployment and verification
-* Systematic troubleshooting methodology
-* Real-world problem analysis and resolution
+* Network Design
+* Routing (Static + OSPF)
+* NAT (PAT)
+* DHCP Deployment
+* VLAN Configuration
+* Troubleshooting Methodology
 
 ---
 
-## 🎯 Key Takeaway
+## 📂 Project Structure
 
-This project goes beyond configuration by focusing on **real-world troubleshooting scenarios**, simulating the type of issues commonly handled in ISP and network support roles.
+```
+isp-customer-network/
+├── README.md
+├── topology/
+├── screenshots/
+└── configs/
+```
 
 ---
 
