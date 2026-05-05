@@ -3,59 +3,107 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Joseph | Network & Automation Engineer</title>
+<title>Joseph | AI & Network Automation Engineer</title>
 
 <style>
+
+/* THEME */
+:root {
+  --bg: #0b1220;
+  --card: #111827;
+  --text: #ffffff;
+  --sub: #94a3b8;
+  --accent: #3b82f6;
+}
+
+.light {
+  --bg: #f5f7fb;
+  --card: #ffffff;
+  --text: #0f172a;
+  --sub: #475569;
+  --accent: #2563eb;
+}
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #0b1220;
-  color: white;
+  background: var(--bg);
+  color: var(--text);
+  transition: 0.3s;
 }
 
 /* HEADER */
 header {
-  text-align: center;
   padding: 80px 20px;
+  text-align: center;
   background: linear-gradient(135deg, #0f172a, #1e293b);
 }
 
 h1 {
-  font-size: 36px;
+  font-size: 38px;
   max-width: 800px;
   margin: auto;
 }
 
 .subtitle {
-  color: #94a3b8;
+  color: var(--sub);
   margin-top: 15px;
+  font-size: 18px;
 }
 
-/* SECTION */
+/* BUTTON */
+.btn {
+  margin-top: 25px;
+  display: inline-block;
+  padding: 14px 28px;
+  background: var(--accent);
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+/* SECTIONS */
 .section {
   max-width: 1000px;
   margin: auto;
-  padding: 60px 20px;
+  padding: 70px 20px;
+}
+
+.section h2 {
   text-align: center;
+  margin-bottom: 20px;
 }
 
 .section p {
-  color: #cbd5f5;
-  line-height: 1.6;
+  text-align: center;
+  color: var(--sub);
+  line-height: 1.7;
+  max-width: 700px;
+  margin: auto;
 }
 
-/* PROJECT CARD */
-.card {
-  background: #111827;
+/* GRID */
+.grid {
+  display: grid;
+  gap: 30px;
   margin-top: 40px;
+}
+
+/* CARD */
+.card {
+  background: var(--card);
   padding: 30px;
-  border-radius: 15px;
+  border-radius: 16px;
   transition: 0.3s;
 }
 
 .card:hover {
   transform: translateY(-5px);
-  background: #1f2937;
 }
 
 .card img {
@@ -64,77 +112,140 @@ h1 {
   margin-top: 20px;
 }
 
-/* BUTTON */
-.btn {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 12px 25px;
-  background: #3b82f6;
+/* TOGGLE */
+.toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: var(--card);
+  padding: 10px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+/* WHATSAPP */
+.whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
   color: white;
-  border-radius: 8px;
+  padding: 15px;
+  border-radius: 50%;
   text-decoration: none;
+  font-size: 20px;
 }
 
-.btn:hover {
-  background: #2563eb;
-}
-
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 40px;
-  color: #94a3b8;
-}
 </style>
 </head>
 
 <body>
 
+<div class="toggle" onclick="toggleTheme()">🌙 / ☀️</div>
+
+<!-- HERO -->
 <header>
-  <h1>I Build Network Systems & Automation That Reduce Downtime and Improve Reliability</h1>
-  <p class="subtitle">ISP Networks • Troubleshooting • Automation Systems</p>
+  <h1>I Build AI & Network Systems That Increase Sales, Reduce Work, and Fix Business Problems Automatically</h1>
+  <p class="subtitle">
+    Capture leads • Automate responses • Fix slow operations • Monitor systems
+  </p>
+
+  <a class="btn" href="https://wa.me/254115361894">Chat on WhatsApp</a>
 </header>
 
+<!-- ABOUT -->
 <div class="section">
-  <h2>What I Do</h2>
+  <h2>What I Do for Businesses</h2>
   <p>
-    I design and troubleshoot real-world networks and combine them with automation to reduce downtime,
-    improve response time, and eliminate repetitive manual work.
+    Most businesses lose customers because they reply late, miss leads, or manage things manually.
+    I build systems that fix that automatically.
   </p>
 
   <p>
-    My focus is not just building systems — but understanding failures and fixing them efficiently.
+    My AI systems capture leads instantly, respond to customers, organize operations, and help businesses run smoothly without hiring more staff.
+  </p>
+
+  <p>
+    I also build and troubleshoot real network systems to ensure reliable connectivity and reduce downtime.
   </p>
 </div>
 
+<!-- PROJECTS -->
 <div class="section">
-  <h2>Featured Project</h2>
+  <h2>Systems I Build</h2>
 
-  <div class="card">
-    <h3>ISP Customer Network Deployment</h3>
-    <p>
-      Simulated a real ISP network with VLANs, OSPF, DHCP, and NAT.
-      Includes real troubleshooting scenarios and step-by-step fixes.
-    </p>
+  <div class="grid">
 
-    <img src="projects/isp-customer-network/screenshots/switch vlan brief.png">
+    <div class="card">
+      <h3>AI Lead Generation System</h3>
+      <p>
+        Automatically captures and qualifies leads in real-time.
+        Businesses never miss potential customers again and can focus only on high-quality leads.
+      </p>
+      <img src="projects/ai-lead-generation/screenshot.png">
+      <br>
+      <a class="btn" href="projects/ai-lead-generation/README.md">View System</a>
+    </div>
 
-    <br>
-    <a class="btn" href="projects/isp-customer-network/README.md">View Full Project</a>
+    <div class="card">
+      <h3>AI Customer Insights</h3>
+      <p>
+        Analyzes customer messages and extracts trends, complaints, and opportunities.
+        Helps businesses understand what customers really want.
+      </p>
+      <img src="projects/ai-customer-insights/screenshot.png">
+      <br>
+      <a class="btn" href="projects/ai-customer-insights/README.md">View System</a>
+    </div>
+
+    <div class="card">
+      <h3>AI Auto Reply System</h3>
+      <p>
+        Instantly responds to customers 24/7 using AI.
+        Increases response speed and improves customer experience.
+      </p>
+      <img src="projects/ai-auto-reply/screenshot.png">
+      <br>
+      <a class="btn" href="projects/ai-auto-reply/README.md">View System</a>
+    </div>
+
+    <div class="card">
+      <h3>Network Deployment & Troubleshooting</h3>
+      <p>
+        Real ISP-level network setup with VLANs, OSPF, DHCP, and NAT.
+        Includes real-world troubleshooting and failure resolution.
+      </p>
+      <img src="projects/isp-customer-network/screenshots/switch-vlan.png">
+      <br>
+      <a class="btn" href="projects/isp-customer-network/README.md">View Project</a>
+    </div>
+
   </div>
-
 </div>
 
+<!-- WHY ME -->
 <div class="section">
-  <h2>What Makes Me Different</h2>
-  <p>✔ I troubleshoot, not just configure</p>
-  <p>✔ I combine networking with automation</p>
-  <p>✔ I focus on real business impact</p>
+  <h2>Why Work With Me</h2>
+  <p>✔ I solve real business problems, not just build demos</p>
+  <p>✔ I combine AI + Automation + Networking</p>
+  <p>✔ I focus on results: more sales, less work, faster systems</p>
 </div>
 
-<footer>
-  <p>Contact: josephnjuguna.automation@gmail.com | +254115361894</p>
-</footer>
+<!-- FOOTER -->
+<div class="section">
+  <h2>Let’s Work Together</h2>
+  <p>If you want to automate your business or improve your systems, reach out.</p>
+
+  <a class="btn" href="https://wa.me/254115361894">Message Me on WhatsApp</a>
+</div>
+
+<a class="whatsapp" href="https://wa.me/254115361894">💬</a>
+
+<script>
+function toggleTheme() {
+  document.body.classList.toggle("light");
+}
+</script>
 
 </body>
 </html>
