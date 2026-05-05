@@ -143,7 +143,7 @@ Where I can:
 
 ## 📬 Contact
 
-* 📧 Email: josephautomation.1@gmail.com  
+* 📧 Email: josephnjuguna.automation@gmail.com  
 * 📞 Phone: +254 115 361 894  
 * 🌐 GitHub: https://github.com/josephautomationke  
 
