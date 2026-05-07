@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1600&auto=format&fit=crop" width="100%" style="border-radius:16px;">
+<img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1600&auto=format&fit=crop" width="100%">
 </p>
 
 <h1 align="center">🌐 Joseph Njuguna | Network & Automation Engineer</h1>
@@ -16,22 +16,29 @@ Building reliable networks, troubleshooting real infrastructure problems, and in
 <a href="https://github.com/josephautomationke">
 <img src="https://img.shields.io/badge/GitHub-Portfolio-181717?style=for-the-badge&logo=github&logoColor=white">
 </a>
+
+<a href="https://josephautomationke.github.io/automation-portfolio/">
+<img src="https://img.shields.io/badge/Automation-Portfolio-0A66C2?style=for-the-badge">
+</a>
 </p>
 
 ---
 
 # 🚀 About Me
 
-I am an entry-level Network & Automation Engineer focused on building and troubleshooting practical business networks.
+I am an entry-level **Network & Automation Engineer** focused on building and troubleshooting practical business networks.
 
-My approach goes beyond simply configuring devices. I focus on:
+My work goes beyond simply configuring devices.
+
+I focus on:
 
 ✅ Understanding why failures happen  
 ✅ Diagnosing issues systematically  
 ✅ Improving reliability and uptime  
-✅ Using automation to reduce repetitive operational work  
+✅ Restoring connectivity quickly  
+✅ Reducing repetitive operational work using automation  
 
-I combine networking knowledge with automation logic to create smarter operational workflows — something increasingly valuable in modern ISP, NOC, and enterprise environments.
+I combine networking with automation logic to create smarter operational workflows — an increasingly valuable skill in modern ISP, NOC, and enterprise environments.
 
 ---
 
@@ -42,9 +49,9 @@ Most entry-level networking portfolios only show configurations.
 Mine focuses on:
 
 - Real troubleshooting
-- Failure recovery
-- Business continuity
-- Operational efficiency
+- Operational thinking
+- Infrastructure reliability
+- Root-cause analysis
 - Automation-enhanced workflows
 
 I understand how to:
@@ -52,161 +59,154 @@ I understand how to:
 ✅ Configure networks  
 ✅ Analyze failures  
 ✅ Restore connectivity  
-✅ Document troubleshooting steps  
-✅ Improve operational workflows using automation  
+✅ Troubleshoot efficiently  
+✅ Improve operations using automation logic  
 
 ---
 
-# 🧠 Networking Skills
+# 🧠 Core Skills
 
-## 🌐 Routing & Switching
-
-- OSPF Routing
-- Static Routing
-- VLAN Configuration
-- Inter-VLAN Routing
-- Router-on-a-Stick
-- DHCP Configuration
-- NAT / PAT
-- Interface Troubleshooting
-- IP Addressing & Subnetting
+| 🌐 Networking | 🔧 Troubleshooting | 🤖 Automation |
+|---|---|---|
+| OSPF Routing | DHCP Failures | Workflow Logic |
+| Static Routing | NAT Problems | Monitoring Logic |
+| VLANs | Routing Issues | Automation Systems |
+| Inter-VLAN Routing | Interface Diagnostics | Operational Efficiency |
+| NAT / PAT | Connectivity Testing | Event-driven Workflows |
+| DHCP | Gateway Problems | Smart Process Automation |
 
 ---
 
-# 🔍 Troubleshooting Experience
+# 🧰 Tools & Technologies
 
-I actively troubleshoot and resolve:
-
-✅ DHCP failures  
-✅ Routing issues  
-✅ VLAN communication problems  
-✅ NAT translation problems  
-✅ Interface shutdown issues  
-✅ Incorrect gateway configurations  
-✅ End-to-end connectivity failures  
-
----
-
-# 🤖 Automation Edge
-
-Besides networking, I also build automation systems using workflow logic and AI tools.
-
-This gives me an advantage because I understand:
-
-- Operational efficiency
-- Monitoring logic
-- Automated workflows
-- Event-driven systems
-- Business process automation
-
-I aim to combine networking + automation for:
-
-✅ Faster diagnostics  
-✅ Better monitoring  
-✅ Reduced downtime  
-✅ Smarter operations  
+| Networking | Automation | Operations |
+|---|---|---|
+| Cisco Packet Tracer | n8n | GitHub |
+| CLI Troubleshooting | AI Workflow Logic | Documentation |
+| Routing & Switching | Process Automation | Diagnostics |
+| IP Addressing | Event-based Logic | System Thinking |
 
 ---
 
 # 🌍 Featured Networking Project
 
-<table>
-<tr>
-<td width="50%">
-
-## ISP Customer Network Deployment & Troubleshooting
+# ISP Customer Network Deployment & Troubleshooting
 
 A complete simulated ISP environment built in Cisco Packet Tracer.
 
 This project demonstrates:
 
-- VLAN segmentation
-- OSPF routing
-- DHCP deployment
-- NAT/PAT configuration
-- Connectivity troubleshooting
-- Real network diagnostics
+✅ VLAN segmentation  
+✅ Inter-VLAN routing  
+✅ OSPF routing between routers  
+✅ DHCP deployment  
+✅ NAT/PAT internet simulation  
+✅ Structured troubleshooting methodology  
 
-I intentionally introduced failures and resolved them using structured troubleshooting methods.
-
-</td>
-
-<td width="50%">
-
-<img src="./projects/isp-customer-network/screenshots/ospf in router.png" width="100%" style="border-radius:12px;">
-
-</td>
-</tr>
-</table>
+I intentionally introduced network failures and resolved them using step-by-step diagnostics.
 
 ---
 
-# 📸 Project Screenshots
+# 🌐 Network Topology
 
-## VLAN Configuration
-<img src="./projects/isp-customer-network/screenshots/switch vlan brief.png" width="100%">
-
----
-
-## Inter-VLAN Routing
-<img src="./projects/isp-customer-network/screenshots/inter vlan routing router.png" width="100%">
+<img src="./projects/isp-customer-network/topology/topology.png" width="100%">
 
 ---
 
-## OSPF Configuration
-<img src="./projects/isp-customer-network/screenshots/ospf in router.png" width="100%">
+# 📸 Configuration & Deployment
+
+| VLAN Configuration | Inter-VLAN Routing |
+|---|---|
+| <img src="./projects/isp-customer-network/screenshots/switch vlan brief.png"> | <img src="./projects/isp-customer-network/screenshots/inter vlan routing router.png"> |
 
 ---
 
-## DHCP Configuration
-<img src="./projects/isp-customer-network/screenshots/Configure DHCP .png" width="100%">
+| OSPF Configuration | DHCP Configuration |
+|---|---|
+| <img src="./projects/isp-customer-network/screenshots/ospf in router.png"> | <img src="./projects/isp-customer-network/screenshots/Configure DHCP .png"> |
 
 ---
 
-## NAT Configuration
-<img src="./projects/isp-customer-network/screenshots/NAT configuration.png" width="100%">
+| NAT Configuration | Routing Verification |
+|---|---|
+| <img src="./projects/isp-customer-network/screenshots/NAT configuration.png"> | <img src="./projects/isp-customer-network/screenshots/routing confirmed.png"> |
 
 ---
 
-# 🛠️ Real Troubleshooting Process
+# 🛠 Real Troubleshooting Process
 
-## DHCP Failure Investigation
-<img src="./projects/isp-customer-network/screenshots/dhcp not working fix.png" width="100%">
-
----
-
-## NAT Troubleshooting
-<img src="./projects/isp-customer-network/screenshots/fixed NAT.png" width="100%">
+This project focuses heavily on operational troubleshooting and failure recovery.
 
 ---
 
-## ACL Troubleshooting
-<img src="./projects/isp-customer-network/screenshots/ACL troubleshoot.png" width="100%">
+| DHCP Failure Recovery | NAT Troubleshooting |
+|---|---|
+| <img src="./projects/isp-customer-network/screenshots/dhcp not working fix.png"> | <img src="./projects/isp-customer-network/screenshots/fixed NAT.png"> |
 
 ---
 
-# 📈 Why This Project Matters
+| ACL Troubleshooting | DHCP Resolution |
+|---|---|
+| <img src="./projects/isp-customer-network/screenshots/ACL troubleshoot.png"> | <img src="./projects/isp-customer-network/screenshots/dhcp fixed.png"> |
 
-This project simulates real operational scenarios faced by:
+---
 
-- ISPs
-- NOCs
-- Enterprise support teams
-- Network technicians
+# 🔍 Operational Mindset
 
-It demonstrates practical skills beyond theory, including:
+I focus on more than connectivity.
 
+I focus on:
+
+✅ Reliability  
+✅ Uptime  
+✅ Faster diagnostics  
+✅ Reduced downtime  
+✅ Efficient operations  
 ✅ Structured troubleshooting  
-✅ Root-cause analysis  
-✅ Documentation  
-✅ Connectivity restoration  
-✅ Multi-device configuration  
+✅ Automation-enhanced workflows  
+
+This operational mindset helps me approach networking from a real business infrastructure perspective.
 
 ---
 
-# 🎯 Career Goal
+# 📈 Business Impact
 
-I am currently focused on opportunities in:
+The skills demonstrated in this project help businesses:
+
+- Reduce downtime
+- Improve troubleshooting speed
+- Maintain stable connectivity
+- Improve operational efficiency
+- Reduce repetitive manual tasks
+- Improve network reliability
+
+---
+
+# 🤖 Networking + Automation
+
+Besides networking, I also build automation systems and AI workflows.
+
+This gives me an advantage because I understand:
+
+✅ Monitoring logic  
+✅ Event-driven systems  
+✅ Operational workflows  
+✅ Process automation  
+✅ Business efficiency systems  
+
+My long-term focus is combining:
+
+🌐 Networking  
++  
+🤖 Automation  
+=  
+⚡ Smarter Infrastructure Operations
+
+---
+
+# 🎯 Career Objective
+
+I am currently pursuing opportunities in:
 
 - NOC Support
 - ISP Operations
@@ -215,28 +215,31 @@ I am currently focused on opportunities in:
 - Technical Support
 - Network Automation
 
-I am highly adaptable, detail-oriented, and eager to continue learning in real-world environments.
+I am highly adaptable, detail-oriented, eager to learn, and passionate about solving real infrastructure problems.
 
 ---
 
 # 📬 Contact
 
 📧 Email: josephautomation.1@gmail.com  
+
 📱 WhatsApp: +254 115 361 894  
+
 🌐 GitHub: https://github.com/josephautomationke
 
 ---
 
 # 🚀 Upcoming Projects
 
-- Multi-Branch Enterprise Network
-- ACL Security Policies
-- Automated Network Monitoring
-- Syslog & Monitoring Server
-- Hybrid Networking + Automation Workflows
+✅ Multi-Branch Enterprise Network  
+✅ ACL Security Policies  
+✅ Automated Network Monitoring  
+✅ Syslog Server Integration  
+✅ Network Failure Detection  
+✅ Hybrid Networking + Automation Workflows  
 
 ---
 
 <p align="center">
-⚡ Built with passion for networking, troubleshooting, and automation.
+⚡ Building reliable systems through networking + automation
 </p>
