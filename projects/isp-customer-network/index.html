@@ -1,1 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ISP Network Deployment Project</title>
 
+<style>
+
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#030712;
+color:white;
+line-height:1.8;
+}
+
+header{
+padding:80px 20px;
+text-align:center;
+background:linear-gradient(135deg,#020617,#0f172a);
+}
+
+header h1{
+font-size:48px;
+max-width:900px;
+margin:auto;
+}
+
+header p{
+max-width:800px;
+margin:30px auto;
+color:#94a3b8;
+font-size:20px;
+}
+
+.container{
+max-width:1100px;
+margin:auto;
+padding:70px 20px;
+}
+
+.section{
+margin-bottom:90px;
+}
+
+.section h2{
+font-size:36px;
+margin-bottom:25px;
+}
+
+.card{
+background:#111827;
+padding:35px;
+border-radius:20px;
+margin-top:30px;
+}
+
+.card img{
+width:100%;
+border-radius:15px;
+margin-top:20px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:25px;
+}
+
+.btn{
+display:inline-block;
+padding:15px 28px;
+background:#2563eb;
+color:white;
+text-decoration:none;
+border-radius:10px;
+font-weight:bold;
+margin-top:20px;
+}
+
+.btn:hover{
+opacity:0.9;
+}
+
+footer{
+text-align:center;
+padding:50px;
+color:#94a3b8;
+}
+
+@media(max-width:768px){
+
+header h1{
+font-size:34px;
+}
+
+header p{
+font-size:17px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>🌍 ISP Customer Network Deployment & Troubleshooting</h1>
+
+<p>
+A real-world ISP simulation featuring VLANs, OSPF routing, DHCP deployment, NAT configuration, and structured troubleshooting workflows.
+</p>
+
+<a class="btn" href="../../index.html">⬅ Back to Portfolio</a>
+
+</header>
+
+<div class="container">
+
+<div class="section">
+
+<h2>📌 Project Overview</h2>
+
+<div class="card">
+
+<p>
+This project simulates a business connected to an ISP environment using Cisco Packet Tracer.
+The network was designed to support multiple departments while ensuring proper routing, segmentation, and internet connectivity.
+</p>
+
+<p>
+The focus of this project was not only configuration, but also troubleshooting and operational diagnostics.
+</p>
+
+</div>
+
+</div>
+
+<div class="section">
+
+<h2>⚡ Technologies & Concepts</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>🌐 OSPF Routing</h3>
+<p>Configured dynamic routing between routers and verified adjacency relationships.</p>
+</div>
+
+<div class="card">
+<h3>🔀 VLAN Segmentation</h3>
+<p>Separated departments using VLANs and enabled Inter-VLAN communication.</p>
+</div>
+
+<div class="card">
+<h3>📡 DHCP Deployment</h3>
+<p>Implemented automatic IP assignment and resolved DHCP-related failures.</p>
+</div>
+
+<div class="card">
+<h3>🌍 NAT/PAT</h3>
+<p>Configured internet simulation and verified translation behavior.</p>
+</div>
+
+</div>
+
+</div>
+
+<div class="section">
+
+<h2>📸 Network Screenshots</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>OSPF Configuration</h3>
+<img src="./screenshots/ospf in router.png">
+</div>
+
+<div class="card">
+<h3>Inter-VLAN Routing</h3>
+<img src="./screenshots/inter vlan routing router.png">
+</div>
+
+<div class="card">
+<h3>DHCP Configuration</h3>
+<img src="./screenshots/Configure DHCP .png">
+</div>
+
+<div class="card">
+<h3>NAT Configuration</h3>
+<img src="./screenshots/NAT configuration.png">
+</div>
+
+</div>
+
+</div>
+
+<div class="section">
+
+<h2>🛠 Troubleshooting Performed</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>DHCP Failure Recovery</h3>
+<p>
+Diagnosed incorrect DHCP configuration preventing clients from obtaining addresses.
+</p>
+
+<img src="./screenshots/dhcp not working fix.png">
+</div>
+
+<div class="card">
+<h3>NAT Troubleshooting</h3>
+<p>
+Verified translation tables and corrected internet connectivity issues.
+</p>
+
+<img src="./screenshots/fixed NAT.png">
+</div>
+
+<div class="card">
+<h3>ACL Diagnostics</h3>
+<p>
+Analyzed traffic filtering behavior and restored communication.
+</p>
+
+<img src="./screenshots/ACL troubleshoot.png">
+</div>
+
+</div>
+
+</div>
+
+<div class="section">
+
+<h2>🎯 Key Learning Outcomes</h2>
+
+<div class="card">
+
+<p>
+✅ Structured troubleshooting methodology<br>
+✅ OSPF neighbor verification<br>
+✅ VLAN & Inter-VLAN implementation<br>
+✅ NAT/PAT internet simulation<br>
+✅ DHCP deployment and diagnostics<br>
+✅ Operational network thinking
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<footer>
+
+<p>
+Joseph Njuguna • Network & Automation Engineer
+</p>
+
+</footer>
+
+</body>
+</html>
