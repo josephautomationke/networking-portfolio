@@ -1,4 +1,3 @@
-```md
 <p align="center">
 <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1600&auto=format&fit=crop" width="100%" style="border-radius:16px;">
 </p>
@@ -241,4 +240,3 @@ I am highly adaptable, detail-oriented, and eager to continue learning in real-w
 <p align="center">
 ⚡ Built with passion for networking, troubleshooting, and automation.
 </p>
-```
