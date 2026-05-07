@@ -1,246 +1,424 @@
+# networking-portfolio/index.html
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Joseph | Network Engineer Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Joseph Njuguna | Networking Portfolio</title>
 
-<style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-:root{
---bg:#071120;
---card:#0f172a;
---text:#ffffff;
---sub:#94a3b8;
---accent:#3b82f6;
-}
+  <style>
 
-.light{
---bg:#f1f5f9;
---card:#ffffff;
---text:#0f172a;
---sub:#475569;
---accent:#2563eb;
-}
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
 
-body{
-margin:0;
-font-family:Arial,sans-serif;
-background:var(--bg);
-color:var(--text);
-transition:0.3s;
-}
+    body{
+      font-family:'Inter',sans-serif;
+      background:#030712;
+      color:white;
+      overflow-x:hidden;
+    }
 
-/* HEADER */
+    body.light{
+      background:#f4f7fb;
+      color:#111827;
+    }
 
-header{
-padding:100px 20px;
-text-align:center;
-background:linear-gradient(135deg,#020617,#0f172a);
-}
+    .background-glow{
+      position:fixed;
+      width:700px;
+      height:700px;
+      background:radial-gradient(circle,#2563eb33,transparent 70%);
+      top:-250px;
+      right:-250px;
+      z-index:-1;
+    }
 
-header h1{
-font-size:48px;
-max-width:900px;
-margin:auto;
-line-height:1.2;
-}
+    header{
+      padding:30px 8%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      position:sticky;
+      top:0;
+      backdrop-filter:blur(10px);
+      background:#030712dd;
+      z-index:999;
+      border-bottom:1px solid rgba(255,255,255,0.05);
+    }
 
-.highlight{
-color:#60a5fa;
-}
+    body.light header{
+      background:#f4f7fbdd;
+    }
 
-.subtitle{
-max-width:800px;
-margin:30px auto;
-font-size:20px;
-color:var(--sub);
-line-height:1.8;
-}
+    .logo{
+      font-size:24px;
+      font-weight:800;
+      color:#60a5fa;
+    }
 
-/* BUTTONS */
+    .nav-right{
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
 
-.btn{
-display:inline-block;
-padding:15px 30px;
-background:var(--accent);
-color:white;
-text-decoration:none;
-border-radius:10px;
-font-weight:bold;
-margin-top:20px;
-transition:0.3s;
-}
+    .social{
+      color:white;
+      text-decoration:none;
+      font-size:14px;
+      opacity:0.8;
+      transition:0.3s;
+    }
 
-.btn:hover{
-transform:translateY(-3px);
-}
+    body.light .social{
+      color:#111827;
+    }
 
-/* SECTION */
+    .social:hover{
+      opacity:1;
+      transform:translateY(-2px);
+    }
 
-.section{
-max-width:1100px;
-margin:auto;
-padding:90px 25px;
-}
+    .toggle{
+      background:#111827;
+      border:none;
+      color:white;
+      padding:12px 16px;
+      border-radius:12px;
+      cursor:pointer;
+      font-weight:700;
+      transition:0.3s;
+    }
 
-.section h2{
-font-size:38px;
-margin-bottom:30px;
-text-align:center;
-}
+    body.light .toggle{
+      background:white;
+      color:#111827;
+    }
 
-/* PROJECT CARD */
+    .hero{
+      padding:90px 8% 40px;
+      text-align:center;
+    }
 
-.project{
-background:var(--card);
-padding:40px;
-border-radius:20px;
-margin-top:40px;
-box-shadow:0 0 30px rgba(0,0,0,0.2);
-}
+    .hero-image{
+      width:100%;
+      max-width:1200px;
+      height:360px;
+      object-fit:cover;
+      border-radius:28px;
+      margin:auto;
+      display:block;
+      box-shadow:0 20px 60px rgba(0,0,0,0.4);
+    }
 
-.project img{
-width:85%;
-margin-top:25px;
-border-radius:15px;
-display:block;
-margin-left:auto;
-margin-right:auto;
-}
+    .hero h1{
+      font-size:58px;
+      line-height:1.1;
+      margin-top:50px;
+      font-weight:800;
+    }
 
-.project p{
-color:var(--sub);
-line-height:1.8;
-font-size:18px;
-}
+    .hero span{
+      color:#60a5fa;
+    }
 
-/* ADVANTAGE */
+    .hero p{
+      max-width:900px;
+      margin:30px auto;
+      color:#94a3b8;
+      font-size:20px;
+      line-height:1.8;
+    }
 
-.advantage{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-margin-top:40px;
-}
+    body.light .hero p{
+      color:#4b5563;
+    }
 
-.box{
-background:var(--card);
-padding:30px;
-border-radius:18px;
-}
+    .buttons{
+      display:flex;
+      justify-content:center;
+      gap:20px;
+      flex-wrap:wrap;
+      margin-top:35px;
+    }
 
-/* TOGGLE */
+    .btn{
+      padding:16px 30px;
+      border-radius:16px;
+      text-decoration:none;
+      color:white;
+      background:linear-gradient(135deg,#2563eb,#3b82f6);
+      font-weight:700;
+      transition:0.3s;
+      box-shadow:0 10px 30px rgba(37,99,235,0.3);
+    }
 
-.toggle{
-position:fixed;
-top:20px;
-right:20px;
-background:var(--card);
-padding:12px 18px;
-border-radius:30px;
-cursor:pointer;
-font-weight:bold;
-z-index:1000;
-}
+    .btn:hover{
+      transform:translateY(-4px);
+    }
 
-/* WHATSAPP */
+    .section{
+      padding:90px 8%;
+    }
 
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-color:white;
-padding:18px;
-border-radius:50%;
-font-size:22px;
-text-decoration:none;
-}
+    .section-title{
+      font-size:42px;
+      margin-bottom:25px;
+      text-align:center;
+      font-weight:800;
+    }
 
-/* FOOTER */
+    .section-subtitle{
+      max-width:900px;
+      margin:auto;
+      text-align:center;
+      color:#94a3b8;
+      font-size:18px;
+      line-height:1.8;
+      margin-bottom:60px;
+    }
 
-footer{
-text-align:center;
-padding:60px 20px;
-color:var(--sub);
-}
+    body.light .section-subtitle{
+      color:#4b5563;
+    }
 
-/* MOBILE */
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:28px;
+    }
 
-@media(max-width:768px){
+    .card{
+      background:#0f172a;
+      border:1px solid rgba(255,255,255,0.06);
+      padding:35px;
+      border-radius:24px;
+      transition:0.35s;
+      box-shadow:0 15px 40px rgba(0,0,0,0.25);
+    }
 
-header h1{
-font-size:34px;
-}
+    body.light .card{
+      background:white;
+      color:#111827;
+    }
 
-.subtitle{
-font-size:17px;
-}
+    .card:hover{
+      transform:translateY(-8px);
+      border-color:#2563eb;
+    }
 
-.project img{
-width:100%;
-}
+    .card h3{
+      font-size:24px;
+      margin-bottom:16px;
+    }
 
-.section{
-padding:70px 20px;
-}
+    .card p{
+      line-height:1.8;
+      color:#94a3b8;
+    }
 
-}
+    body.light .card p{
+      color:#4b5563;
+    }
 
-</style>
+    .project{
+      margin-top:60px;
+      background:#0b1220;
+      border-radius:30px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,0.06);
+      box-shadow:0 20px 50px rgba(0,0,0,0.35);
+    }
+
+    body.light .project{
+      background:white;
+    }
+
+    .project img{
+      width:100%;
+      display:block;
+      max-height:500px;
+      object-fit:cover;
+    }
+
+    .project-content{
+      padding:45px;
+    }
+
+    .project-content h2{
+      font-size:38px;
+      margin-bottom:20px;
+    }
+
+    .project-content p{
+      color:#94a3b8;
+      line-height:1.9;
+      font-size:18px;
+      margin-bottom:30px;
+    }
+
+    body.light .project-content p{
+      color:#4b5563;
+    }
+
+    .features{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:18px;
+      margin-top:30px;
+    }
+
+    .feature{
+      background:#111827;
+      padding:20px;
+      border-radius:18px;
+      color:#dbeafe;
+      font-weight:600;
+    }
+
+    body.light .feature{
+      background:#eff6ff;
+      color:#1e3a8a;
+    }
+
+    .screenshots{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      gap:25px;
+      margin-top:40px;
+    }
+
+    .screenshots img{
+      width:100%;
+      border-radius:20px;
+      border:1px solid rgba(255,255,255,0.08);
+      transition:0.3s;
+    }
+
+    .screenshots img:hover{
+      transform:scale(1.02);
+    }
+
+    footer{
+      padding:70px 8%;
+      text-align:center;
+      color:#94a3b8;
+    }
+
+    @media(max-width:768px){
+
+      header{
+        padding:20px 5%;
+      }
+
+      .hero{
+        padding:50px 5% 30px;
+      }
+
+      .hero-image{
+        height:240px;
+      }
+
+      .hero h1{
+        font-size:38px;
+      }
+
+      .hero p{
+        font-size:17px;
+      }
+
+      .section{
+        padding:70px 5%;
+      }
+
+      .section-title{
+        font-size:32px;
+      }
+
+      .project-content{
+        padding:30px;
+      }
+
+      .project-content h2{
+        font-size:30px;
+      }
+
+    }
+
+  </style>
 </head>
-
 <body>
 
-<div class="toggle" onclick="toggleTheme()">🌙 / ☀️</div>
-
-<!-- HERO -->
+<div class="background-glow"></div>
 
 <header>
+  <div class="logo">🌐 Networking Portfolio</div>
 
-<h1>
-I Build <span class="highlight">Reliable Network Systems</span>  
-and Troubleshoot Real Infrastructure Problems
-</h1>
-
-<p class="subtitle">
-Focused on ISP environments, routing, VLANs, OSPF, DHCP, NAT, and real-world troubleshooting.
-I also integrate automation concepts to improve operational efficiency and reduce repetitive manual work.
-</p>
-
-<a class="btn" href="https://wa.me/254115361894">
-Contact Me on WhatsApp
-</a>
-
+  <div class="nav-right">
+    <a href="https://instagram.com" class="social">Instagram</a>
+    <a href="https://facebook.com" class="social">Facebook</a>
+    <button class="toggle" onclick="toggleTheme()">🌙 / ☀️ Theme</button>
+  </div>
 </header>
 
-<!-- ABOUT -->
+<section class="hero">
+
+<img class="hero-image" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1600&auto=format&fit=crop">
+
+<h1>
+Building <span>Reliable Networks</span><br>
+& Smarter Operations
+</h1>
+
+<p>
+I design, troubleshoot, and optimize real-world networking environments while integrating automation into operations. My focus is reliability, structured diagnostics, uptime, and operational efficiency.
+</p>
+
+<div class="buttons">
+  <a href="https://wa.me/254115361894" class="btn">Chat on WhatsApp</a>
+  <a href="#project" class="btn">Explore Project</a>
+</div>
+
+</section>
 
 <section class="section">
 
-<h2>What Makes Me Different</h2>
+<h2 class="section-title">⚡ What Makes Me Different</h2>
 
-<div class="advantage">
+<p class="section-subtitle">
+Most entry-level networking portfolios only show configurations. Mine focuses on troubleshooting, operational thinking, reliability, automation, and real infrastructure diagnostics.
+</p>
 
-<div class="box">
-<h3>🌐 Real Troubleshooting</h3>
+<div class="grid">
+
+<div class="card">
+<h3>🌐 Networking</h3>
 <p>
-I focus on identifying failures systematically using structured diagnostics instead of guessing configurations.
+OSPF routing, VLANs, NAT/PAT, DHCP deployment, routing diagnostics, inter-VLAN routing, and enterprise-style infrastructure design.
 </p>
 </div>
 
-<div class="box">
-<h3>⚡ Networking + Automation</h3>
+<div class="card">
+<h3>🛠 Troubleshooting</h3>
 <p>
-My automation background helps me think beyond configuration and focus on monitoring, efficiency, and scalable operations.
+Diagnosing DHCP failures, routing issues, connectivity problems, interface shutdowns, NAT translation issues, and restoring network communication.
 </p>
 </div>
 
-<div class="box">
-<h3>🧠 Root Cause Thinking</h3>
+<div class="card">
+<h3>🤖 Automation Edge</h3>
 <p>
-I analyze why systems fail and document the troubleshooting process step-by-step.
+I combine networking with automation thinking to improve operational efficiency, reduce repetitive work, and support smarter infrastructure operations.
 </p>
 </div>
 
@@ -248,84 +426,98 @@ I analyze why systems fail and document the troubleshooting process step-by-step
 
 </section>
 
-<!-- MAIN PROJECT -->
+<section class="section" id="project">
 
-<section class="section">
+<h2 class="section-title">🌍 Featured Networking Project</h2>
 
-<h2>Featured Networking Project</h2>
+<p class="section-subtitle">
+A complete ISP customer network deployment and troubleshooting environment built in Cisco Packet Tracer.
+</p>
 
 <div class="project">
 
-<h3>🌍 ISP Customer Network Deployment & Troubleshooting</h3>
+<img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1600&auto=format&fit=crop">
+
+<div class="project-content">
+
+<h2>ISP Customer Network Deployment & Troubleshooting</h2>
 
 <p>
-This project simulates a real-world ISP deployment for a business environment.
-It includes VLAN segmentation, DHCP deployment, OSPF routing, NAT configuration, and multiple troubleshooting scenarios.
+This project simulates a real-world ISP environment with VLAN segmentation, OSPF routing, DHCP configuration, NAT/PAT internet connectivity, and structured troubleshooting workflows.
+
+I intentionally introduced network failures and resolved them using step-by-step diagnostics to demonstrate operational troubleshooting skills.
 </p>
 
-<p>
-The goal was not only to configure the network, but to troubleshoot failures methodically and restore connectivity efficiently.
-</p>
+<a href="./projects/isp-customer-network/README.md" class="btn">Open Full Project</a>
 
-<p>
-Key areas covered:
-</p>
+<div class="features">
+  <div class="feature">✅ OSPF Routing</div>
+  <div class="feature">✅ VLAN Segmentation</div>
+  <div class="feature">✅ DHCP Deployment</div>
+  <div class="feature">✅ NAT/PAT</div>
+  <div class="feature">✅ ACL Troubleshooting</div>
+  <div class="feature">✅ Connectivity Diagnostics</div>
+</div>
 
-<p>
-✔ VLANs & Inter-VLAN Routing<br>
-✔ DHCP Configuration & Recovery<br>
-✔ OSPF Neighbor Relationships<br>
-✔ NAT (PAT) Configuration<br>
-✔ ACL Troubleshooting<br>
-✔ Routing Verification
-</p>
+<div class="screenshots">
 
-<img src="projects/isp-customer-network/screenshots/switch-vlan.png">
+<img src="./projects/isp-customer-network/screenshots/ospf in router.png">
 
-<br>
+<img src="./projects/isp-customer-network/screenshots/inter vlan routing router.png">
 
-<a class="btn" href="projects/isp-customer-network/README.md">
-Explore Full Project
-</a>
+<img src="./projects/isp-customer-network/screenshots/NAT configuration.png">
+
+<img src="./projects/isp-customer-network/screenshots/switch vlan brief.png">
 
 </div>
 
-</section>
+</div>
 
-<!-- FUTURE -->
-
-<section class="section">
-
-<h2>Current Direction</h2>
-
-<p style="text-align:center;color:var(--sub);max-width:800px;margin:auto;line-height:1.8;">
-I’m currently expanding into larger ISP simulations, multi-router environments,
-network monitoring concepts, and automation-assisted troubleshooting workflows.
-</p>
+</div>
 
 </section>
 
 <footer>
 
-<p>
-Joseph Njuguna • Network & Automation Engineer
-</p>
+<h2>⚡ Joseph Njuguna</h2>
 
 <p>
-GitHub: josephautomationke
+Network & Automation Engineer • Troubleshooting • Operations • Reliability
 </p>
 
 </footer>
 
-<a class="whatsapp" href="https://wa.me/254115361894">💬</a>
-
 <script>
 
 function toggleTheme(){
-document.body.classList.toggle("light");
+  document.body.classList.toggle('light');
 }
 
 </script>
 
 </body>
 </html>
+```
+
+# IMPORTANT
+
+After pasting:
+
+1. Save as `index.html`
+2. Upload to your `networking-portfolio` repo
+3. Delete old README if needed
+4. Go to:
+   Settings → Pages
+5. Source:
+   Deploy from branch
+6. Branch:
+   main
+7. Folder:
+   /(root)
+8. Save
+
+Your site will become:
+
+`https://josephautomationke.github.io/networking-portfolio/`
+
+This also fixes the ugly dark blank page because users will now open a REAL website instead of raw markdown.
