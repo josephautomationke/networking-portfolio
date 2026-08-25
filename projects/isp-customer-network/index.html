@@ -1,270 +1,1846 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ISP Network Deployment Project</title>
 
-<style>
+  <meta charset="UTF-8">
 
-body{
-margin:0;
-font-family:Arial,sans-serif;
-background:#030712;
-color:white;
-line-height:1.8;
-}
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-header{
-padding:80px 20px;
-text-align:center;
-background:linear-gradient(135deg,#020617,#0f172a);
-}
+  <meta
+    name="description"
+    content="ISP Customer Network Deployment and Troubleshooting project by Joseph Njuguna."
+  >
 
-header h1{
-font-size:48px;
-max-width:900px;
-margin:auto;
-}
+  <title>
+    ISP Customer Network | Joseph Njuguna
+  </title>
 
-header p{
-max-width:800px;
-margin:30px auto;
-color:#94a3b8;
-font-size:20px;
-}
 
-.container{
-max-width:1100px;
-margin:auto;
-padding:70px 20px;
-}
+  <style>
 
-.section{
-margin-bottom:90px;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-.section h2{
-font-size:36px;
-margin-bottom:25px;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-.card{
-background:#111827;
-padding:35px;
-border-radius:20px;
-margin-top:30px;
-}
+    body {
 
-.card img{
-width:100%;
-border-radius:15px;
-margin-top:20px;
-}
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
 
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-gap:25px;
-}
+      background: #030712;
 
-.btn{
-display:inline-block;
-padding:15px 28px;
-background:#2563eb;
-color:white;
-text-decoration:none;
-border-radius:10px;
-font-weight:bold;
-margin-top:20px;
-}
+      color: #f8fafc;
 
-.btn:hover{
-opacity:0.9;
-}
+      line-height: 1.8;
 
-footer{
-text-align:center;
-padding:50px;
-color:#94a3b8;
-}
+      overflow-x: hidden;
+    }
 
-@media(max-width:768px){
 
-header h1{
-font-size:34px;
-}
+    /* =========================
+       HEADER
+    ========================= */
 
-header p{
-font-size:17px;
-}
+    header {
 
-}
+      padding: 80px 20px;
 
-</style>
+      text-align: center;
+
+      background:
+        radial-gradient(
+          circle at top right,
+          rgba(37,99,235,0.20),
+          transparent 40%
+        ),
+        linear-gradient(
+          135deg,
+          #020617,
+          #0f172a
+        );
+
+      border-bottom:
+        1px solid rgba(255,255,255,0.06);
+    }
+
+
+    header h1 {
+
+      font-size: 52px;
+
+      line-height: 1.15;
+
+      max-width: 1000px;
+
+      margin: auto;
+
+      font-weight: 800;
+    }
+
+
+    header p {
+
+      max-width: 850px;
+
+      margin: 25px auto;
+
+      color: #94a3b8;
+
+      font-size: 19px;
+    }
+
+
+    /* =========================
+       BUTTONS
+    ========================= */
+
+    .buttons {
+
+      display: flex;
+
+      justify-content: center;
+
+      align-items: center;
+
+      flex-wrap: wrap;
+
+      gap: 15px;
+
+      margin-top: 30px;
+    }
+
+
+    .btn {
+
+      display: inline-block;
+
+      padding: 14px 25px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #2563eb,
+          #3b82f6
+        );
+
+      color: white;
+
+      text-decoration: none;
+
+      border-radius: 10px;
+
+      font-weight: bold;
+
+      transition: 0.3s;
+
+      border: 1px solid
+        rgba(255,255,255,0.08);
+    }
+
+
+    .btn:hover {
+
+      transform: translateY(-3px);
+
+      box-shadow:
+        0 12px 30px
+        rgba(37,99,235,0.25);
+    }
+
+
+    .btn.secondary {
+
+      background: #111827;
+    }
+
+
+    /* =========================
+       MAIN CONTAINER
+    ========================= */
+
+    .container {
+
+      max-width: 1150px;
+
+      margin: auto;
+
+      padding: 70px 20px;
+    }
+
+
+    .section {
+
+      margin-bottom: 90px;
+    }
+
+
+    .section h2 {
+
+      font-size: 36px;
+
+      margin-bottom: 25px;
+
+      color: #f8fafc;
+    }
+
+
+    .section-intro {
+
+      color: #94a3b8;
+
+      max-width: 900px;
+
+      font-size: 18px;
+
+      margin-bottom: 30px;
+    }
+
+
+    /* =========================
+       CARDS
+    ========================= */
+
+    .card {
+
+      background: #111827;
+
+      border:
+        1px solid
+        rgba(255,255,255,0.06);
+
+      padding: 30px;
+
+      border-radius: 20px;
+
+      margin-top: 25px;
+
+      box-shadow:
+        0 15px 40px
+        rgba(0,0,0,0.20);
+    }
+
+
+    .card h3 {
+
+      font-size: 23px;
+
+      margin-bottom: 15px;
+
+      color: #dbeafe;
+    }
+
+
+    .card p {
+
+      color: #cbd5e1;
+
+      margin-bottom: 15px;
+    }
+
+
+    /* =========================
+       TOPOLOGY
+    ========================= */
+
+    .topology-card {
+
+      background: #0f172a;
+
+      border:
+        1px solid
+        rgba(96,165,250,0.15);
+
+      padding: 25px;
+
+      border-radius: 22px;
+
+      margin-top: 30px;
+    }
+
+
+    .topology-card img {
+
+      width: 100%;
+
+      display: block;
+
+      margin-top: 20px;
+
+      border-radius: 15px;
+
+      background: white;
+
+      border:
+        1px solid
+        rgba(255,255,255,0.08);
+    }
+
+
+    /* =========================
+       GRID
+    ========================= */
+
+    .grid {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(
+          auto-fit,
+          minmax(280px,1fr)
+        );
+
+      gap: 25px;
+    }
+
+
+    /* =========================
+       TABLE
+    ========================= */
+
+    .table-wrapper {
+
+      overflow-x: auto;
+
+      margin-top: 25px;
+    }
+
+
+    table {
+
+      width: 100%;
+
+      border-collapse: collapse;
+
+      background: #111827;
+
+      border-radius: 15px;
+
+      overflow: hidden;
+    }
+
+
+    th,
+    td {
+
+      padding: 16px;
+
+      text-align: left;
+
+      border-bottom:
+        1px solid
+        rgba(255,255,255,0.06);
+    }
+
+
+    th {
+
+      background: #1e293b;
+
+      color: #bfdbfe;
+    }
+
+
+    td {
+
+      color: #cbd5e1;
+    }
+
+
+    /* =========================
+       CODE
+    ========================= */
+
+    pre {
+
+      background: #020617;
+
+      border:
+        1px solid
+        rgba(255,255,255,0.08);
+
+      padding: 22px;
+
+      border-radius: 15px;
+
+      overflow-x: auto;
+
+      margin: 20px 0;
+
+      color: #dbeafe;
+
+      font-size: 14px;
+
+      line-height: 1.6;
+    }
+
+
+    /* =========================
+       SCREENSHOTS
+    ========================= */
+
+    .screenshots {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(
+          auto-fit,
+          minmax(300px,1fr)
+        );
+
+      gap: 25px;
+
+      margin-top: 30px;
+    }
+
+
+    .screenshot-card {
+
+      background: #111827;
+
+      padding: 20px;
+
+      border-radius: 18px;
+
+      border:
+        1px solid
+        rgba(255,255,255,0.06);
+    }
+
+
+    .screenshot-card h3 {
+
+      font-size: 19px;
+
+      margin-bottom: 15px;
+
+      color: #dbeafe;
+    }
+
+
+    .screenshot-card img {
+
+      width: 100%;
+
+      display: block;
+
+      border-radius: 12px;
+
+      border:
+        1px solid
+        rgba(255,255,255,0.08);
+
+      background: #020617;
+    }
+
+
+    /* =========================
+       PACKET TRACER
+    ========================= */
+
+    .file-card {
+
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: space-between;
+
+      min-height: 220px;
+    }
+
+
+    .file-name {
+
+      color: #60a5fa;
+
+      font-weight: bold;
+
+      word-break: break-word;
+    }
+
+
+    /* =========================
+       LISTS
+    ========================= */
+
+    ul,
+    ol {
+
+      padding-left: 25px;
+
+      color: #cbd5e1;
+    }
+
+
+    li {
+
+      margin-bottom: 10px;
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+
+      text-align: center;
+
+      padding: 60px 20px;
+
+      border-top:
+        1px solid
+        rgba(255,255,255,0.06);
+
+      color: #94a3b8;
+    }
+
+
+    footer a {
+
+      color: #60a5fa;
+
+      text-decoration: none;
+    }
+
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media(max-width:768px) {
+
+      header {
+
+        padding: 60px 20px;
+      }
+
+
+      header h1 {
+
+        font-size: 35px;
+      }
+
+
+      header p {
+
+        font-size: 16px;
+      }
+
+
+      .container {
+
+        padding: 55px 15px;
+      }
+
+
+      .section h2 {
+
+        font-size: 30px;
+      }
+
+
+      .card {
+
+        padding: 22px;
+      }
+
+
+      .buttons {
+
+        flex-direction: column;
+      }
+
+
+      .buttons .btn {
+
+        width: 100%;
+
+        text-align: center;
+      }
+
+    }
+
+  </style>
 
 </head>
 
+
 <body>
+
 
 <header>
 
-<h1>🌍 ISP Customer Network Deployment & Troubleshooting</h1>
+  <h1>
+    🌍 ISP Customer Network
+    Deployment & Troubleshooting
+  </h1>
 
-<p>
-A real-world ISP simulation featuring VLANs, OSPF routing, DHCP deployment, NAT configuration, and structured troubleshooting workflows.
-</p>
 
-<a class="btn" href="../../index.html">⬅ Back to Portfolio</a>
+  <p>
+    A practical Cisco Packet Tracer networking project demonstrating
+    VLAN segmentation, inter-VLAN routing, DHCP, OSPF, NAT/PAT,
+    ACL troubleshooting, connectivity testing, and structured
+    network diagnostics.
+  </p>
+
+
+  <div class="buttons">
+
+    <a
+      href="../../index.html"
+      class="btn secondary"
+    >
+      ← Back to Portfolio
+    </a>
+
+
+    <a
+      href="#topology"
+      class="btn"
+    >
+      View Network
+    </a>
+
+
+    <a
+      href="#packet-tracer"
+      class="btn"
+    >
+      Packet Tracer Files
+    </a>
+
+  </div>
 
 </header>
 
-<div class="container">
 
-<div class="section">
+<main class="container">
 
-<h2>📌 Project Overview</h2>
 
-<div class="card">
+<!-- =========================
+     PROJECT OVERVIEW
+========================= -->
 
-<p>
-This project simulates a business connected to an ISP environment using Cisco Packet Tracer.
-The network was designed to support multiple departments while ensuring proper routing, segmentation, and internet connectivity.
-</p>
+<section class="section">
 
-<p>
-The focus of this project was not only configuration, but also troubleshooting and operational diagnostics.
-</p>
+  <h2>
+    🚀 Project Overview
+  </h2>
 
-</div>
 
-</div>
+  <p class="section-intro">
 
-<div class="section">
+    This project simulates a small business network connected through
+    an ISP environment using Cisco Packet Tracer.
 
-<h2>⚡ Technologies & Concepts</h2>
+    The purpose was to demonstrate both network implementation
+    and practical troubleshooting.
 
-<div class="grid">
+  </p>
 
-<div class="card">
-<h3>🌐 OSPF Routing</h3>
-<p>Configured dynamic routing between routers and verified adjacency relationships.</p>
-</div>
 
-<div class="card">
-<h3>🔀 VLAN Segmentation</h3>
-<p>Separated departments using VLANs and enabled Inter-VLAN communication.</p>
-</div>
+  <div class="card">
 
-<div class="card">
-<h3>📡 DHCP Deployment</h3>
-<p>Implemented automatic IP assignment and resolved DHCP-related failures.</p>
-</div>
+    <h3>
+      🎯 Project Goal
+    </h3>
 
-<div class="card">
-<h3>🌍 NAT/PAT</h3>
-<p>Configured internet simulation and verified translation behavior.</p>
-</div>
+    <p>
+      Build a functional network environment that supports multiple
+      departments while providing logical segmentation, routing,
+      automatic addressing, dynamic routing, and simulated Internet
+      connectivity.
+    </p>
 
-</div>
+    <p>
+      The project also intentionally introduces network failures so
+      that they can be diagnosed using a structured troubleshooting
+      methodology rather than guesswork.
+    </p>
 
-</div>
+  </div>
 
-<div class="section">
+</section>
 
-<h2>📸 Network Screenshots</h2>
 
-<div class="grid">
+<!-- =========================
+     BUSINESS IMPACT
+========================= -->
 
-<div class="card">
-<h3>OSPF Configuration</h3>
-<img src="./screenshots/ospf in router.png">
-</div>
+<section class="section">
 
-<div class="card">
-<h3>Inter-VLAN Routing</h3>
-<img src="./screenshots/inter vlan routing router.png">
-</div>
+  <h2>
+    💼 Business Impact
+  </h2>
 
-<div class="card">
-<h3>DHCP Configuration</h3>
-<img src="./screenshots/Configure DHCP .png">
-</div>
 
-<div class="card">
-<h3>NAT Configuration</h3>
-<img src="./screenshots/NAT configuration.png">
-</div>
+  <div class="grid">
 
-</div>
+    <div class="card">
 
-</div>
+      <h3>
+        ⚡ Reduced Downtime
+      </h3>
 
-<div class="section">
+      <p>
+        Structured troubleshooting helps identify problems faster
+        and reduces unnecessary service interruption.
+      </p>
 
-<h2>🛠 Troubleshooting Performed</h2>
+    </div>
 
-<div class="grid">
 
-<div class="card">
-<h3>DHCP Failure Recovery</h3>
-<p>
-Diagnosed incorrect DHCP configuration preventing clients from obtaining addresses.
-</p>
+    <div class="card">
 
-<img src="./screenshots/dhcp not working fix.png">
-</div>
+      <h3>
+        🔍 Less Guesswork
+      </h3>
 
-<div class="card">
-<h3>NAT Troubleshooting</h3>
-<p>
-Verified translation tables and corrected internet connectivity issues.
-</p>
+      <p>
+        A layer-by-layer diagnostic process makes troubleshooting
+        more consistent and repeatable.
+      </p>
 
-<img src="./screenshots/fixed NAT.png">
-</div>
+    </div>
 
-<div class="card">
-<h3>ACL Diagnostics</h3>
-<p>
-Analyzed traffic filtering behavior and restored communication.
-</p>
 
-<img src="./screenshots/ACL troubleshoot.png">
-</div>
+    <div class="card">
 
-</div>
+      <h3>
+        🌐 Reliable Connectivity
+      </h3>
 
-</div>
+      <p>
+        Routing, VLANs, DHCP, OSPF, and NAT work together to provide
+        reliable end-to-end connectivity.
+      </p>
 
-<div class="section">
+    </div>
 
-<h2>🎯 Key Learning Outcomes</h2>
 
-<div class="card">
+    <div class="card">
 
-<p>
-✅ Structured troubleshooting methodology<br>
-✅ OSPF neighbor verification<br>
-✅ VLAN & Inter-VLAN implementation<br>
-✅ NAT/PAT internet simulation<br>
-✅ DHCP deployment and diagnostics<br>
-✅ Operational network thinking
-</p>
+      <h3>
+        🧠 Operational Thinking
+      </h3>
 
-</div>
+      <p>
+        The project focuses on restoring services and verifying
+        the result, not simply applying configurations.
+      </p>
 
-</div>
+    </div>
 
-</div>
+  </div>
+
+</section>
+
+
+<!-- =========================
+     TOPOLOGY
+========================= -->
+
+<section
+  class="section"
+  id="topology"
+>
+
+  <h2>
+    🌐 Network Topology
+  </h2>
+
+
+  <p class="section-intro">
+
+    The topology represents a simplified business environment
+    with departmental VLANs, routing infrastructure, and an
+    ISP-facing network.
+
+  </p>
+
+
+  <div class="topology-card">
+
+    <h3>
+      Primary Network Topology
+    </h3>
+
+    <img
+      src="./topology/top.png"
+      alt="ISP customer network topology"
+    >
+
+  </div>
+
+
+  <div class="topology-card">
+
+    <h3>
+      Detailed Project Topology
+    </h3>
+
+    <img
+      src="./topology/isp%20project%201.png"
+      alt="Detailed ISP project topology"
+    >
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     NETWORK DESIGN
+========================= -->
+
+<section class="section">
+
+  <h2>
+    🧩 Network Design
+  </h2>
+
+
+  <div class="card">
+
+    <p>
+      The network uses departmental VLAN segmentation to separate
+      traffic logically while allowing controlled communication
+      through Layer 3 routing.
+    </p>
+
+
+    <div class="table-wrapper">
+
+      <table>
+
+        <thead>
+
+          <tr>
+            <th>VLAN</th>
+            <th>Department</th>
+            <th>Example Network</th>
+            <th>Gateway</th>
+          </tr>
+
+        </thead>
+
+
+        <tbody>
+
+          <tr>
+            <td>10</td>
+            <td>HR</td>
+            <td>192.168.10.0/24</td>
+            <td>192.168.10.1</td>
+          </tr>
+
+          <tr>
+            <td>20</td>
+            <td>Sales</td>
+            <td>192.168.20.0/24</td>
+            <td>192.168.20.1</td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     TECHNOLOGIES
+========================= -->
+
+<section class="section">
+
+  <h2>
+    ⚙️ Technologies & Concepts
+  </h2>
+
+
+  <div class="grid">
+
+    <div class="card">
+
+      <h3>
+        🔀 VLAN Segmentation
+      </h3>
+
+      <p>
+        Departments are separated using VLANs to create logical
+        broadcast domains and improve network organization.
+      </p>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>
+        🔄 Inter-VLAN Routing
+      </h3>
+
+      <p>
+        Router-on-a-Stick is used to allow communication between
+        different VLANs through router subinterfaces.
+      </p>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>
+        📡 DHCP
+      </h3>
+
+      <p>
+        DHCP provides automatic IP addressing, subnet masks,
+        gateways, and other client configuration information.
+      </p>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>
+        🌐 OSPF
+      </h3>
+
+      <p>
+        OSPF provides dynamic routing and allows routers to
+        exchange information about reachable networks.
+      </p>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>
+        🔁 NAT / PAT
+      </h3>
+
+      <p>
+        NAT/PAT provides simulated Internet access by translating
+        private internal addresses toward the ISP-facing network.
+      </p>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>
+        🛡 ACL Troubleshooting
+      </h3>
+
+      <p>
+        Access-control behaviour was examined as part of the
+        troubleshooting and connectivity restoration process.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     CONFIGURATION EVIDENCE
+========================= -->
+
+<section class="section">
+
+  <h2>
+    📸 Configuration Evidence
+  </h2>
+
+
+  <p class="section-intro">
+
+    The following screenshots provide evidence of the actual
+    Cisco configuration and verification work performed during
+    the project.
+
+  </p>
+
+
+  <div class="screenshots">
+
+
+    <div class="screenshot-card">
+
+      <h3>
+        🔀 VLAN Configuration
+      </h3>
+
+      <img
+        src="./screenshots/switch%20vlan%20brief.png"
+        alt="Switch VLAN configuration"
+      >
+
+    </div>
+
+
+    <div class="screenshot-card">
+
+      <h3>
+        🔄 Inter-VLAN Routing
+      </h3>
+
+      <img
+        src="./screenshots/inter%20vlan%20routing%20router.png"
+        alt="Inter VLAN routing configuration"
+      >
+
+    </div>
+
+
+    <div class="screenshot-card">
+
+      <h3>
+        📡 DHCP Configuration
+      </h3>
+
+      <img
+        src="./screenshots/Configure%20DHCP%20.png"
+        alt="DHCP configuration"
+      >
+
+    </div>
+
+
+    <div class="screenshot-card">
+
+      <h3>
+        🌐 OSPF Router Configuration
+      </h3>
+
+      <img
+        src="./screenshots/ospf%20in%20router.png"
+        alt="OSPF router configuration"
+      >
+
+    </div>
+
+
+    <div class="screenshot-card">
+
+      <h3>
+        🧭 Routing Verification
+      </h3>
+
+      <img
+        src="./screenshots/routing%20confirmed.png"
+        alt="Routing verification"
+      >
+
+    </div>
+
+
+    <div class="screenshot-card">
+
+      <h3>
+        🔁 NAT Configuration
+      </h3>
+
+      <img
+        src="./screenshots/NAT%20configuration.png"
+        alt="NAT configuration"
+      >
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     TROUBLESHOOTING
+========================= -->
+
+<section class="section">
+
+  <h2>
+    🛠 Troubleshooting Scenarios
+  </h2>
+
+
+  <p class="section-intro">
+
+    A major part of this project was deliberately introducing
+    failures and then using structured diagnostics to identify
+    and resolve them.
+
+  </p>
+
+
+  <div class="grid">
+
+
+    <div class="card">
+
+      <h3>
+        📡 DHCP Failure
+      </h3>
+
+      <p>
+        A DHCP-related failure prevented clients from receiving
+        the expected network configuration.
+      </p>
+
+      <p>
+        The issue was investigated through interface status,
+        VLAN configuration, router configuration, and DHCP
+        verification.
+      </p>
+
+      <img
+        src="./screenshots/dhcp%20not%20working%20fix.png"
+        alt="DHCP troubleshooting"
+        style="width:100%;margin-top:15px;border-radius:12px;"
+      >
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>
+        ✅ DHCP Recovery
+      </h3>
+
+      <p>
+        After the corrective configuration was applied, DHCP
+        functionality was verified again.
+      </p>
+
+      <img
+        src="./screenshots/dhcp%20fixed.png"
+        alt="DHCP fixed"
+        style="width:100%;margin-top:15px;border-radius:12px;"
+      >
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>
+        🔁 NAT Troubleshooting
+      </h3>
+
+      <p>
+        NAT configuration and translation behaviour were examined
+        to identify connectivity problems toward the simulated ISP.
+      </p>
+
+      <img
+        src="./screenshots/NAT%20configuration.png"
+        alt="NAT troubleshooting"
+        style="width:100%;margin-top:15px;border-radius:12px;"
+      >
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>
+        ✅ NAT Recovery
+      </h3>
+
+      <p>
+        The corrected NAT configuration was verified after the
+        connectivity issue was addressed.
+      </p>
+
+      <img
+        src="./screenshots/fixed%20NAT.png"
+        alt="Fixed NAT configuration"
+        style="width:100%;margin-top:15px;border-radius:12px;"
+      >
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>
+        🛡 ACL Troubleshooting
+      </h3>
+
+      <p>
+        ACL behaviour was investigated as part of the connectivity
+        troubleshooting process.
+      </p>
+
+      <img
+        src="./screenshots/ACL%20troubleshoot.png"
+        alt="ACL troubleshooting"
+        style="width:100%;margin-top:15px;border-radius:12px;"
+      >
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     TROUBLESHOOTING METHOD
+========================= -->
+
+<section class="section">
+
+  <h2>
+    🔎 Troubleshooting Methodology
+  </h2>
+
+
+  <div class="card">
+
+    <h3>
+      My troubleshooting workflow
+    </h3>
+
+
+    <ol>
+
+      <li>
+        Identify the exact symptom.
+      </li>
+
+      <li>
+        Confirm the problem using a simple connectivity test.
+      </li>
+
+      <li>
+        Check the physical and interface state.
+      </li>
+
+      <li>
+        Verify Layer 2 configuration such as VLANs and trunks.
+      </li>
+
+      <li>
+        Verify Layer 3 configuration such as IP addresses,
+        gateways, and routing.
+      </li>
+
+      <li>
+        Check services such as DHCP, OSPF, NAT, and ACLs.
+      </li>
+
+      <li>
+        Isolate the root cause.
+      </li>
+
+      <li>
+        Apply the smallest appropriate correction.
+      </li>
+
+      <li>
+        Re-test connectivity.
+      </li>
+
+      <li>
+        Verify that the expected service has been restored.
+      </li>
+
+    </ol>
+
+  </div>
+
+
+  <div class="card">
+
+    <h3>
+      Useful Cisco verification commands
+    </h3>
+
+
+<pre>
+show ip interface brief
+
+show vlan brief
+
+show interfaces trunk
+
+show ip route
+
+show ip ospf neighbor
+
+show ip protocols
+
+show ip dhcp binding
+
+show ip dhcp pool
+
+show ip nat translations
+
+show ip nat statistics
+
+ping
+
+traceroute
+</pre>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     VERIFICATION
+========================= -->
+
+<section class="section">
+
+  <h2>
+    🧪 Connectivity Verification
+  </h2>
+
+
+  <div class="grid">
+
+
+    <div class="card">
+
+      <h3>
+        Test 1 — Client to Gateway
+      </h3>
+
+      <p>
+        Confirm that each client can reach its default gateway.
+      </p>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>
+        Test 2 — Same VLAN
+      </h3>
+
+      <p>
+        Confirm communication between hosts in the same VLAN.
+      </p>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>
+        Test 3 — Inter-VLAN
+      </h3>
+
+      <p>
+        Confirm communication between the HR and Sales networks.
+      </p>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>
+        Test 4 — Router Connectivity
+      </h3>
+
+      <p>
+        Confirm connectivity between routing devices.
+      </p>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>
+        Test 5 — Remote Network
+      </h3>
+
+      <p>
+        Confirm that routing information allows communication
+        with remote networks.
+      </p>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>
+        Test 6 — ISP / Internet Simulation
+      </h3>
+
+      <p>
+        Confirm that internal traffic can reach the simulated
+        external network through NAT/PAT.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     PACKET TRACER FILES
+========================= -->
+
+<section
+  class="section"
+  id="packet-tracer"
+>
+
+  <h2>
+    📦 Cisco Packet Tracer Files
+  </h2>
+
+
+  <p class="section-intro">
+
+    The repository contains the Packet Tracer files used during
+    the different stages of the networking work.
+
+    These files can be downloaded and opened using Cisco Packet Tracer.
+
+  </p>
+
+
+  <div class="grid">
+
+
+    <div class="card file-card">
+
+      <div>
+
+        <h3>
+          Inter-VLAN Routing
+        </h3>
+
+        <p class="file-name">
+          inter vlan routing.pkt
+        </p>
+
+        <p>
+          Demonstrates VLAN segmentation and Router-on-a-Stick
+          inter-VLAN routing.
+        </p>
+
+      </div>
+
+
+      <a
+        class="btn"
+        href="./inter%20vlan%20routing.pkt"
+        download
+      >
+        Download Packet Tracer File
+      </a>
+
+    </div>
+
+
+    <div class="card file-card">
+
+      <div>
+
+        <h3>
+          Inter-LAN Connection
+        </h3>
+
+        <p class="file-name">
+          interLAN connection.pkt
+        </p>
+
+        <p>
+          Demonstrates LAN connectivity and routing between
+          network segments.
+        </p>
+
+      </div>
+
+
+      <a
+        class="btn"
+        href="./interLAN%20connection.pkt"
+        download
+      >
+        Download Packet Tracer File
+      </a>
+
+    </div>
+
+
+    <div class="card file-card">
+
+      <div>
+
+        <h3>
+          Project 1
+        </h3>
+
+        <p class="file-name">
+          project 1.pkt
+        </p>
+
+        <p>
+          Packet Tracer project file containing networking
+          configuration work.
+        </p>
+
+      </div>
+
+
+      <a
+        class="btn"
+        href="./project%201.pkt"
+        download
+      >
+        Download Packet Tracer File
+      </a>
+
+    </div>
+
+
+    <div class="card file-card">
+
+      <div>
+
+        <h3>
+          Switch Configuration
+        </h3>
+
+        <p class="file-name">
+          switch.pkt
+        </p>
+
+        <p>
+          Packet Tracer file demonstrating switching and
+          VLAN configuration.
+        </p>
+
+      </div>
+
+
+      <a
+        class="btn"
+        href="./switch.pkt"
+        download
+      >
+        Download Packet Tracer File
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     SKILLS
+========================= -->
+
+<section class="section">
+
+  <h2>
+    🧠 Skills Demonstrated
+  </h2>
+
+
+  <div class="grid">
+
+
+    <div class="card">
+
+      <h3>
+        Networking
+      </h3>
+
+      <p>
+        VLANs, trunking, inter-VLAN routing, IPv4 addressing,
+        DHCP, OSPF, NAT/PAT, routing tables, and connectivity.
+      </p>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>
+        Troubleshooting
+      </h3>
+
+      <p>
+        Layer-by-layer diagnostics, fault isolation,
+        connectivity testing, root-cause analysis,
+        remediation, and verification.
+      </p>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>
+        Operational Thinking
+      </h3>
+
+      <p>
+        Minimizing downtime, using repeatable diagnostic
+        processes, documenting changes, and verifying service
+        restoration.
+      </p>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>
+        Automation Direction
+      </h3>
+
+      <p>
+        Building a foundation for future network monitoring,
+        automated diagnostics, infrastructure automation,
+        and operational tooling.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     LESSONS
+========================= -->
+
+<section class="section">
+
+  <h2>
+    📚 Lessons Learned
+  </h2>
+
+
+  <div class="card">
+
+    <p>
+      This project reinforced that network engineering is not
+      simply about entering commands into Cisco devices.
+    </p>
+
+    <p>
+      A correctly configured network still needs to be tested,
+      monitored, documented, and troubleshot when something
+      changes or fails.
+    </p>
+
+    <p>
+      The most important workflow I developed through this
+      project is:
+    </p>
+
+
+<pre>
+Observe
+   ↓
+Test
+   ↓
+Isolate
+   ↓
+Fix
+   ↓
+Verify
+   ↓
+Document
+</pre>
+
+
+    <p>
+      This approach reduces guesswork and creates a repeatable
+      method for solving infrastructure problems.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     FUTURE IMPROVEMENTS
+========================= -->
+
+<section class="section">
+
+  <h2>
+    🚀 Future Improvements
+  </h2>
+
+
+  <div class="card">
+
+    <ul>
+
+      <li>
+        Add stronger ACL security policies.
+      </li>
+
+      <li>
+        Introduce multiple branch offices.
+      </li>
+
+      <li>
+        Add routing redundancy.
+      </li>
+
+      <li>
+        Add centralized logging and Syslog.
+      </li>
+
+      <li>
+        Add SNMP-based monitoring.
+      </li>
+
+      <li>
+        Build automated network health checks.
+      </li>
+
+      <li>
+        Automate configuration backups.
+      </li>
+
+      <li>
+        Integrate Python-based network automation.
+      </li>
+
+      <li>
+        Develop automated troubleshooting workflows.
+      </li>
+
+    </ul>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     DOCUMENTATION
+========================= -->
+
+<section class="section">
+
+  <h2>
+    📖 Full Technical Documentation
+  </h2>
+
+
+  <div class="card">
+
+    <h3>
+      Want the complete technical breakdown?
+    </h3>
+
+
+    <p>
+
+      The project README contains the detailed architecture,
+      configuration concepts, troubleshooting methodology,
+      verification process, business impact, lessons learned,
+      and project documentation.
+
+    </p>
+
+
+    <a
+      href="./README.md"
+      class="btn"
+    >
+      Read Full README
+    </a>
+
+  </div>
+
+</section>
+
+
+</main>
+
 
 <footer>
 
-<p>
-Joseph Njuguna • Network & Automation Engineer
-</p>
+  <h3>
+    ⚡ Joseph Njuguna
+  </h3>
+
+  <p>
+    Network & Automation Engineer
+    • Troubleshooting
+    • Operations
+    • Reliability
+  </p>
+
+
+  <p style="margin-top:15px;">
+
+    <a
+      href="https://github.com/josephautomationke"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      GitHub
+    </a>
+
+    &nbsp;•&nbsp;
+
+    <a
+      href="https://wa.me/254115361894"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      WhatsApp
+    </a>
+
+  </p>
 
 </footer>
 
+
 </body>
+
 </html>
