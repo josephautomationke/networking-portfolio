@@ -1,86 +1,127 @@
-# Networking & Automation Portfolio
+# 🌐 Networking & Automation Portfolio
 
 ## Joseph Automation
 
-A practical portfolio showcasing networking infrastructure, ISP environments, troubleshooting, workflow automation and technology solutions.
+> **Building practical technology solutions across networking, ISP infrastructure, and business process automation.**
+
+This repository is a showcase of practical projects combining **computer networking, ISP infrastructure, troubleshooting, workflow automation, and operational technology solutions**.
+
+Rather than focusing only on individual technologies, these projects demonstrate how technology can be applied to solve real operational problems.
 
 ---
 
-## About
+## 🚀 What This Portfolio Demonstrates
 
-This repository contains practical projects demonstrating my development across networking and automation.
+This portfolio currently covers two different technical areas:
 
-My focus is on building systems that solve practical operational problems rather than only demonstrating theoretical concepts.
+| Project | Focus | Main Technologies |
+|---|---|---|
+| 🌐 **ISP Customer Network Deployment & Troubleshooting** | Network infrastructure | Cisco Packet Tracer, VLANs, OSPF, DHCP, NAT/PAT |
+| 🤖 **ISP Appointment Booking & Technician Assignment Automation** | Business process automation | n8n, Google Sheets, Gmail, conditional logic |
 
-The portfolio currently combines:
+### The difference is simple:
 
-- Computer networking
-- ISP network infrastructure
-- Network troubleshooting
-- Cisco Packet Tracer
-- n8n workflow automation
-- Google Sheets integration
-- Gmail automation
-- Conditional workflow logic
-- Technician assignment processes
+**Project 01 = I build and troubleshoot the network.**
+
+**Project 02 = I automate the business processes that operate around the network.**
+
+Together, they demonstrate a broader understanding of how an ISP can use technology for both **infrastructure and operational efficiency**.
 
 ---
 
-# Featured Projects
+# 🌐 Project 01 — ISP Customer Network Deployment & Troubleshooting
 
-## 1. ISP Customer Network Deployment & Troubleshooting
+### Network Infrastructure & Troubleshooting
 
-A simulated ISP network environment developed using Cisco Packet Tracer.
+This project simulates the deployment and troubleshooting of a structured ISP/customer network environment using Cisco Packet Tracer.
 
-### Technologies & Concepts
+The objective was to design a working network infrastructure and demonstrate the ability to configure, test, diagnose, and resolve common networking problems.
 
-- Cisco Packet Tracer
-- VLANs
-- Inter-VLAN Routing
-- OSPF
+### 🔧 Key Areas
+
+- VLAN configuration
+- Inter-VLAN routing
+- OSPF routing
 - DHCP
 - NAT/PAT
-- Network Troubleshooting
-- Routing & Switching
-
-### Project Demonstrates
-
-- Network segmentation
 - Router configuration
 - Switch configuration
-- VLAN implementation
-- Inter-VLAN communication
+- Network segmentation
+- Connectivity testing
+- Troubleshooting
+- Fault identification and resolution
+
+### 🎯 What This Project Demonstrates
+
+The project demonstrates practical understanding of:
+
+- Network design
+- Routing and switching
+- IP addressing
+- Network segmentation
 - Dynamic routing
-- DHCP configuration
+- DHCP services
 - NAT configuration
-- Troubleshooting network connectivity
+- Connectivity troubleshooting
 - Diagnosing configuration problems
 
-### Project
+### 📂 Project Files
 
-[View ISP Customer Network Project](projects/isp-customer-network/index.html)
+[**→ Open the Full Networking Project**](projects/isp-customer-network/index.html)
 
-[View ISP Network Documentation](projects/isp-customer-network/README.md)
+[**→ Read the Networking Documentation**](projects/isp-customer-network/README.md)
 
 ---
 
-# 2. ISP Appointment Booking & Technician Assignment System
+# 🤖 Project 02 — ISP Appointment Booking & Technician Assignment Automation
 
-An n8n workflow automation project designed to streamline ISP appointment processing and technician assignment.
+### Business Process Automation
 
-The workflow connects appointment information with technician data and uses workflow logic to process the assignment.
+This project focuses on a completely different problem.
 
-### Workflow
+Instead of building the network itself, the goal is to **automate an ISP operational process**.
+
+The system processes appointment information, evaluates technician information, applies assignment logic, updates booking information, and sends automated communication.
+
+The workflow is built using **n8n**, with Google Sheets and Gmail used as supporting services.
+
+---
+
+## ⚙️ Automation Workflow
 
 ```text
-Google Sheets Trigger
-        ↓
-Collect Technician Data
-        ↓
-Match Skills & Availability
-        ↓
-IF Condition
-        ↓
-Update Booking
-        ↓
-Gmail Notification
+                    CUSTOMER / BOOKING DATA
+                              │
+                              ▼
+                    ┌─────────────────────┐
+                    │   Google Sheets     │
+                    │      Trigger        │
+                    └──────────┬──────────┘
+                               │
+                               ▼
+                    ┌─────────────────────┐
+                    │ Technician Data     │
+                    │ Collection          │
+                    └──────────┬──────────┘
+                               │
+                               ▼
+                    ┌─────────────────────┐
+                    │ Skills & Availability│
+                    │ Matching             │
+                    └──────────┬──────────┘
+                               │
+                               ▼
+                    ┌─────────────────────┐
+                    │    IF / Decision    │
+                    │       Logic         │
+                    └──────────┬──────────┘
+                               │
+                       ┌───────┴───────┐
+                       ▼               ▼
+                  MATCH FOUND      NO MATCH
+                       │               │
+                       ▼               ▼
+                Update Booking    Handle Result
+                       │
+                       ▼
+                Gmail Notification
