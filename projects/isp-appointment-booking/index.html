@@ -1,1 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>ISP Appointment Booking & Technician Assignment | Joseph Automation</title>
+
+    <meta name="description" content="ISP Appointment Booking and Technician Assignment automation system built with n8n, Google Sheets and Gmail.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0b1120;
+            color: #e5e7eb;
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1100px, 92%);
+            margin: auto;
+        }
+
+        header {
+            border-bottom: 1px solid #1e293b;
+            background: rgba(11, 17, 32, 0.96);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav {
+            min-height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .brand {
+            font-size: 20px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .brand span {
+            color: #38bdf8;
+        }
+
+        .back-link {
+            color: #94a3b8;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .back-link:hover {
+            color: #38bdf8;
+        }
+
+        .hero {
+            padding: 90px 0 70px;
+            background:
+                radial-gradient(circle at top right, rgba(56, 189, 248, 0.12), transparent 35%),
+                radial-gradient(circle at bottom left, rgba(59, 130, 246, 0.08), transparent 30%);
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 7px 13px;
+            border: 1px solid #164e63;
+            border-radius: 999px;
+            color: #38bdf8;
+            background: #082f49;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: clamp(36px, 6vw, 64px);
+            line-height: 1.1;
+            max-width: 850px;
+            color: #ffffff;
+            margin-bottom: 24px;
+        }
+
+        .hero p {
+            max-width: 800px;
+            color: #94a3b8;
+            font-size: 18px;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            border: 1px solid #334155;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: #0ea5e9;
+            border-color: #0ea5e9;
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background: #0284c7;
+        }
+
+        .btn-secondary {
+            color: #cbd5e1;
+        }
+
+        .btn-secondary:hover {
+            border-color: #38bdf8;
+            color: #38bdf8;
+        }
+
+        section {
+            padding: 75px 0;
+            border-top: 1px solid #172033;
+        }
+
+        .section-title {
+            font-size: 32px;
+            color: #ffffff;
+            margin-bottom: 14px;
+        }
+
+        .section-intro {
+            color: #94a3b8;
+            max-width: 780px;
+            margin-bottom: 35px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .card {
+            background: #111827;
+            border: 1px solid #1e293b;
+            border-radius: 14px;
+            padding: 25px;
+        }
+
+        .card h3 {
+            color: #ffffff;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .card p {
+            color: #94a3b8;
+        }
+
+        .problem {
+            border-left: 4px solid #ef4444;
+        }
+
+        .solution {
+            border-left: 4px solid #22c55e;
+        }
+
+        .workflow {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .workflow-step {
+            position: relative;
+            background: #111827;
+            border: 1px solid #1e293b;
+            padding: 22px;
+            border-radius: 12px;
+        }
+
+        .workflow-step h3 {
+            color: #ffffff;
+            margin-bottom: 5px;
+        }
+
+        .workflow-step p {
+            color: #94a3b8;
+        }
+
+        .arrow {
+            text-align: center;
+            color: #38bdf8;
+            font-size: 24px;
+            padding: 6px;
+        }
+
+        .number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #082f49;
+            color: #38bdf8;
+            margin-right: 8px;
+            font-weight: bold;
+        }
+
+        .tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .tech {
+            padding: 8px 13px;
+            background: #172033;
+            border: 1px solid #263449;
+            border-radius: 7px;
+            color: #cbd5e1;
+            font-size: 14px;
+        }
+
+        .screenshot-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .screenshot {
+            background: #111827;
+            border: 1px solid #1e293b;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .screenshot img {
+            width: 100%;
+            display: block;
+            height: auto;
+        }
+
+        .screenshot-caption {
+            padding: 15px 18px;
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        .impact-list {
+            list-style: none;
+            display: grid;
+            gap: 15px;
+        }
+
+        .impact-list li {
+            background: #111827;
+            border: 1px solid #1e293b;
+            padding: 18px 20px;
+            border-radius: 10px;
+            color: #cbd5e1;
+        }
+
+        .impact-list li::before {
+            content: "✓";
+            color: #22c55e;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .note {
+            margin-top: 25px;
+            padding: 18px;
+            border-radius: 10px;
+            background: #172033;
+            border: 1px solid #263449;
+            color: #94a3b8;
+        }
+
+        footer {
+            border-top: 1px solid #1e293b;
+            padding: 35px 0;
+            text-align: center;
+            color: #64748b;
+        }
+
+        @media (max-width: 750px) {
+            .grid,
+            .screenshot-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding: 65px 0 50px;
+            }
+
+            section {
+                padding: 55px 0;
+            }
+
+            .nav {
+                min-height: 60px;
+            }
+
+            .back-link {
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="container nav">
+        <a href="../../index.html" class="brand">
+            Joseph<span>Automation</span>
+        </a>
+
+        <a href="../../index.html" class="back-link">
+            ← Back to Portfolio
+        </a>
+    </div>
+</header>
+
+<main>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+
+            <span class="tag">n8n Workflow Automation Project</span>
+
+            <h1>
+                ISP Appointment Booking & Technician Assignment System
+            </h1>
+
+            <p>
+                An automation workflow designed to process ISP appointment
+                requests, evaluate technician skills and availability,
+                update booking information, and send automated notifications.
+            </p>
+
+            <div class="buttons">
+                <a href="../../index.html" class="btn btn-primary">
+                    View Portfolio
+                </a>
+
+                <a href="README.md" class="btn btn-secondary">
+                    View Documentation
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- OVERVIEW -->
+    <section>
+        <div class="container">
+
+            <h2 class="section-title">Project Overview</h2>
+
+            <p class="section-intro">
+                This project demonstrates how workflow automation can be
+                applied to ISP appointment management. Instead of manually
+                reviewing technician information and updating bookings,
+                the workflow processes the available information and
+                performs the assignment and notification steps automatically.
+            </p>
+
+            <div class="grid">
+
+                <div class="card problem">
+                    <h3>Business Problem</h3>
+
+                    <p>
+                        ISP appointment management can involve checking
+                        technician skills, checking availability, assigning
+                        the appropriate technician, updating booking records,
+                        and communicating appointment information.
+                    </p>
+                </div>
+
+                <div class="card solution">
+                    <h3>Automation Solution</h3>
+
+                    <p>
+                        The n8n workflow connects Google Sheets and Gmail
+                        with workflow logic to process technician information,
+                        evaluate the available options, update the booking,
+                        and trigger an automated notification.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- WORKFLOW -->
+    <section>
+        <div class="container">
+
+            <h2 class="section-title">Workflow Architecture</h2>
+
+            <p class="section-intro">
+                The automation follows a structured sequence of data
+                collection, processing, decision-making, record updating,
+                and notification.
+            </p>
+
+            <div class="workflow">
+
+                <div class="workflow-step">
+                    <h3>
+                        <span class="number">1</span>
+                        Google Sheets Trigger
+                    </h3>
+
+                    <p>
+                        The workflow begins when the relevant booking or
+                        spreadsheet data is received through Google Sheets.
+                    </p>
+                </div>
+
+                <div class="arrow">↓</div>
+
+                <div class="workflow-step">
+                    <h3>
+                        <span class="number">2</span>
+                        Collect Technician Data
+                    </h3>
+
+                    <p>
+                        Technician information is collected so that the
+                        workflow can evaluate the available technicians.
+                    </p>
+                </div>
+
+                <div class="arrow">↓</div>
+
+                <div class="workflow-step">
+                    <h3>
+                        <span class="number">3</span>
+                        Match Skills & Availability
+                    </h3>
+
+                    <p>
+                        The workflow evaluates technician information and
+                        matches the requirements against technician skills
+                        and availability.
+                    </p>
+                </div>
+
+                <div class="arrow">↓</div>
+
+                <div class="workflow-step">
+                    <h3>
+                        <span class="number">4</span>
+                        Conditional Decision
+                    </h3>
+
+                    <p>
+                        An IF condition determines the next action based
+                        on whether an appropriate technician can be assigned.
+                    </p>
+                </div>
+
+                <div class="arrow">↓</div>
+
+                <div class="workflow-step">
+                    <h3>
+                        <span class="number">5</span>
+                        Update Booking
+                    </h3>
+
+                    <p>
+                        Once the appropriate path is determined, the booking
+                        information is updated with the workflow result.
+                    </p>
+                </div>
+
+                <div class="arrow">↓</div>
+
+                <div class="workflow-step">
+                    <h3>
+                        <span class="number">6</span>
+                        Gmail Notification
+                    </h3>
+
+                    <p>
+                        Gmail is used to send an automated notification after
+                        the booking process reaches the notification stage.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- TECHNOLOGIES -->
+    <section>
+        <div class="container">
+
+            <h2 class="section-title">Technologies Used</h2>
+
+            <p class="section-intro">
+                The system combines workflow automation with spreadsheet
+                data and email communication.
+            </p>
+
+            <div class="tech-list">
+
+                <span class="tech">n8n</span>
+                <span class="tech">Google Sheets</span>
+                <span class="tech">Gmail</span>
+                <span class="tech">Workflow Automation</span>
+                <span class="tech">Conditional Logic</span>
+                <span class="tech">Data Processing</span>
+                <span class="tech">Technician Assignment</span>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- SCREENSHOTS -->
+    <section>
+        <div class="container">
+
+            <h2 class="section-title">System Screenshots</h2>
+
+            <p class="section-intro">
+                Screenshots from the automation workflow and supporting
+                systems used during development.
+            </p>
+
+            <div class="screenshot-grid">
+
+                <div class="screenshot">
+                    <img
+                        src="screenshots/workflow-overview.png"
+                        alt="Complete n8n workflow overview"
+                    >
+
+                    <div class="screenshot-caption">
+                        Complete n8n workflow overview.
+                    </div>
+                </div>
+
+                <div class="screenshot">
+                    <img
+                        src="screenshots/technician-matching.png"
+                        alt="Technician matching workflow"
+                    >
+
+                    <div class="screenshot-caption">
+                        Technician skills and availability matching.
+                    </div>
+                </div>
+
+                <div class="screenshot">
+                    <img
+                        src="screenshots/booking-data.png"
+                        alt="ISP appointment booking data"
+                    >
+
+                    <div class="screenshot-caption">
+                        Booking and technician data used by the workflow.
+                    </div>
+                </div>
+
+                <div class="screenshot">
+                    <img
+                        src="screenshots/email-notification.png"
+                        alt="Automated Gmail notification"
+                    >
+
+                    <div class="screenshot-caption">
+                        Automated Gmail notification.
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="note">
+                If you use different screenshot filenames, rename the
+                corresponding files in the screenshots folder or update
+                the image filenames above.
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- BUSINESS IMPACT -->
+    <section>
+        <div class="container">
+
+            <h2 class="section-title">Automation Benefits</h2>
+
+            <ul class="impact-list">
+
+                <li>
+                    Reduces repetitive manual appointment-processing tasks.
+                </li>
+
+                <li>
+                    Provides a structured method for matching technicians
+                    with appointment requirements.
+                </li>
+
+                <li>
+                    Uses conditional workflow logic to control different
+                    processing paths.
+                </li>
+
+                <li>
+                    Keeps booking information organized in Google Sheets.
+                </li>
+
+                <li>
+                    Automates communication through Gmail.
+                </li>
+
+                <li>
+                    Demonstrates practical application of n8n to an ISP
+                    operational process.
+                </li>
+
+            </ul>
+
+        </div>
+    </section>
+
+
+    <!-- FUTURE -->
+    <section>
+        <div class="container">
+
+            <h2 class="section-title">Future Improvements</h2>
+
+            <div class="grid">
+
+                <div class="card">
+                    <h3>Customer Interface</h3>
+
+                    <p>
+                        Add a customer-facing appointment form or web
+                        interface for submitting service requests.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Real-Time Availability</h3>
+
+                    <p>
+                        Connect the workflow to a more advanced scheduling
+                        or database system for real-time technician
+                        availability.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>SMS Notifications</h3>
+
+                    <p>
+                        Extend notifications beyond email by integrating
+                        an SMS or messaging service.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Dashboard</h3>
+
+                    <p>
+                        Build a dashboard for monitoring appointments,
+                        technician assignments, and workflow activity.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+
+<footer>
+    <div class="container">
+        <p>
+            ISP Appointment Booking & Technician Assignment System
+        </p>
+
+        <p>
+            Built by Joseph Automation
+        </p>
+    </div>
+</footer>
+
+</body>
+</html>
