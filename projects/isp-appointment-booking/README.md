@@ -1,50 +1,56 @@
-# ISP Appointment Booking & Technician Assignment System
 
-## Overview
+# 🤖 ISP Appointment Booking & Technician Assignment Automation
 
-The ISP Appointment Booking & Technician Assignment System is a workflow automation project designed to streamline the process of handling ISP service appointments.
-
-The system uses n8n to process appointment and technician information, evaluate technician skills and availability, make a conditional assignment decision, update booking information, and send an automated Gmail notification.
-
-This project demonstrates the practical use of workflow automation to reduce repetitive operational tasks in an ISP environment.
+> **An n8n-powered workflow for automating ISP appointment processing, technician matching, booking updates, and notifications.**
 
 ---
 
-## Business Problem
+## 📌 Project Type
 
-ISP appointment management can require several manual steps.
+**Business Process Automation**
 
-A typical process may involve:
+### Primary Platform
 
-1. Receiving an appointment request.
-2. Reviewing technician information.
-3. Checking technician skills.
-4. Checking availability.
-5. Selecting a suitable technician.
-6. Updating the appointment record.
-7. Informing the relevant person about the booking.
+**n8n**
 
-Performing these tasks manually can become repetitive and time-consuming.
+### Supporting Services
 
-The goal of this project was to demonstrate how these steps can be connected into an automated workflow.
+- Google Sheets
+- Gmail
+
+### Focus
+
+**ISP Operations & Workflow Automation**
 
 ---
 
-## Solution
+# 🎯 Project Overview
 
-The workflow uses n8n to connect the different stages of the appointment process.
+An ISP may receive customer service requests that need to be processed, scheduled, assigned to suitable technicians, recorded, and communicated to the relevant people.
 
-The main workflow is:
+When these activities are handled manually, staff may need to repeatedly review information, compare technician details, update records, and send notifications.
+
+This project demonstrates how these operational steps can be connected into a single automated workflow using **n8n**.
+
+The workflow processes booking information, evaluates technician information, applies decision logic, updates booking information, and sends automated communication.
+
+---
+
+# 💡 The Problem
+
+A simplified manual appointment process may look like this:
 
 ```text
-Google Sheets Trigger
-        ↓
-Collect Technician Data
-        ↓
-Match Skills & Availability
-        ↓
-IF Condition
-        ↓
+Customer Request
+       ↓
+Staff Reviews Request
+       ↓
+Check Technician Skills
+       ↓
+Check Availability
+       ↓
+Select Technician
+       ↓
 Update Booking
-        ↓
-Gmail Notification
+       ↓
+Send Notification
