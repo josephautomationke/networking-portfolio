@@ -1,682 +1,699 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Joseph Njuguna | Networking Portfolio</title>
-
-  <meta
-    name="description"
-    content="Networking and automation portfolio showcasing Cisco networking, troubleshooting, routing, VLANs, DHCP, NAT/PAT, OSPF and infrastructure automation."
-  >
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  >
-
-  <style>
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #030712;
-      color: white;
-      overflow-x: hidden;
-      line-height: 1.7;
-    }
-
-    body.light {
-      background: #f4f7fb;
-      color: #111827;
-    }
-
-    .background-glow {
-      position: fixed;
-      width: 700px;
-      height: 700px;
-      background: radial-gradient(
-        circle,
-        rgba(37, 99, 235, 0.20),
-        transparent 70%
-      );
-      top: -250px;
-      right: -250px;
-      z-index: -1;
-      pointer-events: none;
-    }
-
-    header {
-      padding: 25px 8%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      background: rgba(3, 7, 18, 0.90);
-      z-index: 999;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-
-    body.light header {
-      background: rgba(244,247,251,0.90);
-      border-bottom: 1px solid rgba(0,0,0,0.08);
-    }
-
-    .logo {
-      font-size: 23px;
-      font-weight: 800;
-      color: #60a5fa;
-    }
-
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .social {
-      color: white;
-      text-decoration: none;
-      font-size: 14px;
-      opacity: 0.8;
-      transition: 0.3s;
-    }
-
-    .social:hover {
-      opacity: 1;
-      transform: translateY(-2px);
-    }
-
-    body.light .social {
-      color: #111827;
-    }
-
-    .toggle {
-      background: #111827;
-      border: none;
-      color: white;
-      padding: 11px 15px;
-      border-radius: 12px;
-      cursor: pointer;
-      font-weight: 700;
-    }
-
-    body.light .toggle {
-      background: white;
-      color: #111827;
-      border: 1px solid #e5e7eb;
-    }
-
-    .hero {
-      padding: 80px 8% 60px;
-      text-align: center;
-    }
-
-    .hero-image {
-      width: 100%;
-      max-width: 1200px;
-      height: 360px;
-      object-fit: cover;
-      border-radius: 28px;
-      margin: auto;
-      display: block;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.40);
-    }
-
-    .hero h1 {
-      font-size: 58px;
-      line-height: 1.1;
-      margin-top: 50px;
-      font-weight: 800;
-    }
-
-    .hero h1 span {
-      color: #60a5fa;
-    }
-
-    .hero p {
-      max-width: 900px;
-      margin: 30px auto;
-      color: #94a3b8;
-      font-size: 20px;
-      line-height: 1.8;
-    }
-
-    body.light .hero p {
-      color: #4b5563;
-    }
-
-    .buttons {
-      display: flex;
-      justify-content: center;
-      gap: 18px;
-      flex-wrap: wrap;
-      margin-top: 35px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 15px 28px;
-      border-radius: 14px;
-      text-decoration: none;
-      color: white;
-      background: linear-gradient(135deg, #2563eb, #3b82f6);
-      font-weight: 700;
-      transition: 0.3s;
-      box-shadow: 0 10px 30px rgba(37,99,235,0.25);
-    }
-
-    .btn:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 15px 35px rgba(37,99,235,0.35);
-    }
-
-    .btn.secondary {
-      background: #111827;
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: none;
-    }
-
-    body.light .btn.secondary {
-      background: white;
-      color: #111827;
-      border: 1px solid #e5e7eb;
-    }
-
-    .section {
-      padding: 90px 8%;
-    }
-
-    .section-title {
-      font-size: 42px;
-      margin-bottom: 25px;
-      text-align: center;
-      font-weight: 800;
-    }
-
-    .section-subtitle {
-      max-width: 900px;
-      margin: auto;
-      text-align: center;
-      color: #94a3b8;
-      font-size: 18px;
-      line-height: 1.8;
-      margin-bottom: 60px;
-    }
-
-    body.light .section-subtitle {
-      color: #4b5563;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 28px;
-    }
-
-    .card {
-      background: #0f172a;
-      border: 1px solid rgba(255,255,255,0.06);
-      padding: 32px;
-      border-radius: 24px;
-      transition: 0.35s;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.25);
-    }
-
-    .card:hover {
-      transform: translateY(-7px);
-      border-color: #2563eb;
-    }
-
-    body.light .card {
-      background: white;
-      color: #111827;
-      border-color: #e5e7eb;
-    }
-
-    .card h3 {
-      font-size: 23px;
-      margin-bottom: 15px;
-    }
-
-    .card p {
-      color: #94a3b8;
-      line-height: 1.8;
-    }
-
-    body.light .card p {
-      color: #4b5563;
-    }
-
-    .project {
-      margin-top: 60px;
-      background: #0b1220;
-      border-radius: 30px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.06);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.35);
-    }
-
-    body.light .project {
-      background: white;
-    }
-
-    .project img.project-cover {
-      width: 100%;
-      display: block;
-      max-height: 500px;
-      object-fit: cover;
-    }
-
-    .project-content {
-      padding: 45px;
-    }
-
-    .project-content h2 {
-      font-size: 38px;
-      margin-bottom: 20px;
-    }
-
-    .project-content p {
-      color: #94a3b8;
-      line-height: 1.9;
-      font-size: 18px;
-      margin-bottom: 25px;
-    }
-
-    body.light .project-content p {
-      color: #4b5563;
-    }
-
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 18px;
-      margin-top: 35px;
-    }
-
-    .feature {
-      background: #111827;
-      padding: 18px;
-      border-radius: 16px;
-      color: #dbeafe;
-      font-weight: 600;
-    }
-
-    body.light .feature {
-      background: #eff6ff;
-      color: #1e3a8a;
-    }
-
-    .screenshots {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-      margin-top: 40px;
-    }
-
-    .screenshots img {
-      width: 100%;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,0.08);
-      transition: 0.3s;
-    }
-
-    .screenshots img:hover {
-      transform: scale(1.02);
-    }
-
-    footer {
-      padding: 70px 8%;
-      text-align: center;
-      color: #94a3b8;
-    }
-
-    @media(max-width: 768px) {
-
-      header {
-        padding: 20px 5%;
-      }
-
-      .logo {
-        font-size: 18px;
-      }
-
-      .social {
-        display: none;
-      }
-
-      .hero {
-        padding: 50px 5% 30px;
-      }
-
-      .hero-image {
-        height: 230px;
-      }
-
-      .hero h1 {
-        font-size: 38px;
-      }
-
-      .hero p {
-        font-size: 17px;
-      }
-
-      .section {
-        padding: 70px 5%;
-      }
-
-      .section-title {
-        font-size: 32px;
-      }
-
-      .project-content {
-        padding: 30px;
-      }
-
-      .project-content h2 {
-        font-size: 30px;
-      }
-    }
-
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Joseph Automation | Networking & Automation Portfolio</title>
+
+    <meta
+        name="description"
+        content="Networking and automation portfolio showcasing ISP networking projects, n8n workflow automation, troubleshooting and practical technology solutions."
+    >
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0b1120;
+            color: #e5e7eb;
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: min(1100px, 92%);
+            margin: auto;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(11, 17, 32, 0.96);
+            border-bottom: 1px solid #1e293b;
+        }
+
+        nav {
+            min-height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 21px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .logo span {
+            color: #38bdf8;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #94a3b8;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #38bdf8;
+        }
+
+        .hero {
+            min-height: 88vh;
+            display: flex;
+            align-items: center;
+            background:
+                radial-gradient(circle at 80% 20%, rgba(14, 165, 233, 0.14), transparent 35%),
+                radial-gradient(circle at 10% 80%, rgba(59, 130, 246, 0.10), transparent 35%);
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            color: #38bdf8;
+            background: #082f49;
+            border: 1px solid #164e63;
+            padding: 7px 13px;
+            border-radius: 999px;
+            font-size: 13px;
+            margin-bottom: 22px;
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: clamp(42px, 7vw, 72px);
+            line-height: 1.05;
+            margin-bottom: 24px;
+        }
+
+        h1 span {
+            color: #38bdf8;
+        }
+
+        .hero p {
+            color: #94a3b8;
+            font-size: 19px;
+            max-width: 760px;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            border: 1px solid #334155;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: #0ea5e9;
+            border-color: #0ea5e9;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #0284c7;
+        }
+
+        .btn-secondary {
+            color: #cbd5e1;
+        }
+
+        .btn-secondary:hover {
+            color: #38bdf8;
+            border-color: #38bdf8;
+        }
+
+        section {
+            padding: 90px 0;
+            border-top: 1px solid #172033;
+        }
+
+        .section-heading {
+            max-width: 750px;
+            margin-bottom: 40px;
+        }
+
+        .section-heading h2 {
+            font-size: 36px;
+            color: #ffffff;
+            margin-bottom: 12px;
+        }
+
+        .section-heading p {
+            color: #94a3b8;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 25px;
+        }
+
+        .card {
+            background: #111827;
+            border: 1px solid #1e293b;
+            border-radius: 14px;
+            padding: 28px;
+        }
+
+        .card h3 {
+            color: #ffffff;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #94a3b8;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+            margin-top: 20px;
+        }
+
+        .skill {
+            padding: 8px 12px;
+            border-radius: 7px;
+            background: #172033;
+            border: 1px solid #263449;
+            color: #cbd5e1;
+            font-size: 14px;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .project-card {
+            background: #111827;
+            border: 1px solid #1e293b;
+            border-radius: 15px;
+            padding: 30px;
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: #38bdf8;
+        }
+
+        .project-icon {
+            width: 55px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: #082f49;
+            font-size: 25px;
+            margin-bottom: 20px;
+        }
+
+        .project-card h3 {
+            color: #ffffff;
+            font-size: 23px;
+            margin-bottom: 12px;
+        }
+
+        .project-card p {
+            color: #94a3b8;
+            margin-bottom: 20px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 25px;
+        }
+
+        .tag {
+            padding: 6px 9px;
+            background: #172033;
+            border-radius: 6px;
+            color: #cbd5e1;
+            font-size: 12px;
+        }
+
+        .project-btn {
+            display: inline-block;
+            padding: 11px 16px;
+            background: #0ea5e9;
+            color: white;
+            border-radius: 7px;
+            font-weight: 600;
+        }
+
+        .project-btn:hover {
+            background: #0284c7;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .service {
+            padding: 25px;
+            background: #111827;
+            border: 1px solid #1e293b;
+            border-radius: 13px;
+        }
+
+        .service h3 {
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .service p {
+            color: #94a3b8;
+        }
+
+        .contact-box {
+            text-align: center;
+            max-width: 800px;
+            margin: auto;
+            background: #111827;
+            border: 1px solid #1e293b;
+            padding: 45px 30px;
+            border-radius: 15px;
+        }
+
+        .contact-box h2 {
+            color: #ffffff;
+            margin-bottom: 15px;
+            font-size: 34px;
+        }
+
+        .contact-box p {
+            color: #94a3b8;
+            margin-bottom: 25px;
+        }
+
+        footer {
+            border-top: 1px solid #1e293b;
+            padding: 35px 0;
+            text-align: center;
+            color: #64748b;
+        }
+
+        @media (max-width: 800px) {
+            .about-grid,
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            .services {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                min-height: 80vh;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<div class="background-glow"></div>
-
 <header>
+    <div class="container">
 
-  <div class="logo">
-    🌐 Networking Portfolio
-  </div>
+        <nav>
+            <a href="index.html" class="logo">
+                Joseph<span>Automation</span>
+            </a>
 
-  <div class="nav-right">
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
 
-    <a
-      href="https://github.com/josephautomationke"
-      class="social"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      GitHub
-    </a>
-
-    <a
-      href="https://wa.me/254115361894"
-      class="social"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      WhatsApp
-    </a>
-
-    <button class="toggle" onclick="toggleTheme()">
-      🌙 / ☀️ Theme
-    </button>
-
-  </div>
-
+    </div>
 </header>
 
 
-<section class="hero">
+<main>
 
-  <img
-    class="hero-image"
-    src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1600&auto=format&fit=crop"
-    alt="Computer networking infrastructure"
-  >
+    <!-- HERO -->
+    <section class="hero">
 
-  <h1>
-    Building <span>Reliable Networks</span><br>
-    & Smarter Operations
-  </h1>
+        <div class="container">
 
-  <p>
-    I design, troubleshoot, and optimize networking environments while
-    developing an automation mindset for reliable infrastructure operations.
-    My focus is structured diagnostics, connectivity, uptime, and practical
-    network engineering.
-  </p>
+            <div class="hero-content">
 
-  <div class="buttons">
+                <span class="eyebrow">
+                    Networking • Automation • Technology
+                </span>
 
-    <a
-      href="https://wa.me/254115361894"
-      class="btn"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Chat on WhatsApp
-    </a>
+                <h1>
+                    Networking &<br>
+                    <span>Automation</span> Projects
+                </h1>
 
-    <a href="#project" class="btn secondary">
-      Explore Project
-    </a>
+                <p>
+                    A practical portfolio showcasing networking infrastructure,
+                    ISP environments, troubleshooting, workflow automation,
+                    and technology solutions designed to improve operational
+                    efficiency.
+                </p>
 
-  </div>
+                <div class="buttons">
 
-</section>
+                    <a href="#projects" class="btn btn-primary">
+                        View Projects
+                    </a>
 
+                    <a href="https://github.com/josephautomationke"
+                       target="_blank"
+                       class="btn btn-secondary">
+                        GitHub Profile
+                    </a>
 
-<section class="section">
+                </div>
 
-  <h2 class="section-title">
-    ⚡ What Makes Me Different
-  </h2>
+            </div>
 
-  <p class="section-subtitle">
-    I don't only focus on configuring network devices. I focus on understanding
-    how the network behaves, identifying failures, troubleshooting systematically,
-    restoring connectivity, and documenting the solution.
-  </p>
-
-  <div class="grid">
-
-    <div class="card">
-      <h3>🌐 Networking</h3>
-      <p>
-        VLANs, OSPF routing, NAT/PAT, DHCP deployment,
-        inter-VLAN routing, IPv4 addressing, switching,
-        routing diagnostics, and infrastructure design.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>🛠 Troubleshooting</h3>
-      <p>
-        Diagnosing DHCP failures, routing problems, connectivity issues,
-        VLAN and trunk problems, NAT translation issues, ACL behaviour,
-        and restoring network communication.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>🤖 Automation Mindset</h3>
-      <p>
-        Combining networking with automation thinking to reduce repetitive
-        work, improve operational visibility, and build smarter infrastructure
-        operations.
-      </p>
-    </div>
-
-  </div>
-
-</section>
-
-
-<section class="section" id="project">
-
-  <h2 class="section-title">
-    🌍 Featured Networking Project
-  </h2>
-
-  <p class="section-subtitle">
-    A complete ISP customer network deployment and troubleshooting environment
-    built in Cisco Packet Tracer.
-  </p>
-
-
-  <div class="project">
-
-    <img
-      class="project-cover"
-      src="./projects/isp-customer-network/topology/top.png"
-      alt="ISP customer network topology"
-    >
-
-
-    <div class="project-content">
-
-      <h2>
-        ISP Customer Network Deployment & Troubleshooting
-      </h2>
-
-      <p>
-        This project simulates a small business connected through an ISP
-        environment. It demonstrates VLAN segmentation, inter-VLAN routing,
-        DHCP deployment, OSPF dynamic routing, NAT/PAT, ACL troubleshooting,
-        connectivity testing, and structured network diagnostics.
-      </p>
-
-      <p>
-        The project goes beyond configuration by demonstrating how network
-        failures can be identified, isolated, corrected, and verified using
-        a systematic troubleshooting methodology.
-      </p>
-
-
-      <a
-        href="./projects/isp-customer-network/index.html"
-        class="btn"
-      >
-        Open Full Project
-      </a>
-
-
-      <a
-        href="./projects/isp-customer-network/README.md"
-        class="btn secondary"
-      >
-        Read Technical Documentation
-      </a>
-
-
-      <div class="features">
-
-        <div class="feature">
-          ✅ OSPF Routing
         </div>
 
-        <div class="feature">
-          ✅ VLAN Segmentation
+    </section>
+
+
+    <!-- ABOUT -->
+    <section id="about">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <h2>About Me</h2>
+
+                <p>
+                    I am building practical skills across networking,
+                    infrastructure and automation, with a focus on solving
+                    real operational problems using technology.
+                </p>
+
+            </div>
+
+            <div class="about-grid">
+
+                <div class="card">
+
+                    <h3>My Approach</h3>
+
+                    <p>
+                        I focus on building practical systems rather than
+                        only studying theory. My projects combine networking
+                        concepts, troubleshooting, workflow automation,
+                        structured data and operational processes.
+                    </p>
+
+                    <p style="margin-top:15px;">
+                        The goal is to create solutions that are
+                        understandable, useful and capable of being extended
+                        into real-world environments.
+                    </p>
+
+                </div>
+
+                <div class="card">
+
+                    <h3>Core Areas</h3>
+
+                    <div class="skills">
+
+                        <span class="skill">Networking</span>
+                        <span class="skill">Cisco</span>
+                        <span class="skill">Routing</span>
+                        <span class="skill">Switching</span>
+                        <span class="skill">Troubleshooting</span>
+                        <span class="skill">n8n</span>
+                        <span class="skill">Automation</span>
+                        <span class="skill">Google Sheets</span>
+                        <span class="skill">Gmail</span>
+                        <span class="skill">Workflow Logic</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
 
-        <div class="feature">
-          ✅ Inter-VLAN Routing
+    </section>
+
+
+    <!-- SKILLS -->
+    <section id="skills">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <h2>Technical Skills</h2>
+
+                <p>
+                    Technologies and concepts demonstrated through my
+                    projects and practical work.
+                </p>
+
+            </div>
+
+            <div class="services">
+
+                <div class="service">
+
+                    <h3>🌐 Networking</h3>
+
+                    <p>
+                        VLANs, routing, switching, DHCP, NAT/PAT,
+                        OSPF, inter-VLAN routing and network troubleshooting.
+                    </p>
+
+                </div>
+
+                <div class="service">
+
+                    <h3>⚙️ Automation</h3>
+
+                    <p>
+                        n8n workflow design, conditional logic,
+                        data processing, system integration and
+                        automated operational processes.
+                    </p>
+
+                </div>
+
+                <div class="service">
+
+                    <h3>📊 Data & Communication</h3>
+
+                    <p>
+                        Google Sheets-based workflows, structured data,
+                        Gmail notifications and automation-driven
+                        information processing.
+                    </p>
+
+                </div>
+
+            </div>
+
         </div>
 
-        <div class="feature">
-          ✅ DHCP Deployment
+    </section>
+
+
+    <!-- PROJECTS -->
+    <section id="projects">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <h2>Featured Projects</h2>
+
+                <p>
+                    Practical projects demonstrating networking,
+                    troubleshooting and business workflow automation.
+                </p>
+
+            </div>
+
+
+            <div class="projects">
+
+
+                <!-- PROJECT 1 -->
+                <article class="project-card">
+
+                    <div class="project-icon">
+                        🌐
+                    </div>
+
+                    <h3>
+                        ISP Customer Network Deployment & Troubleshooting
+                    </h3>
+
+                    <p>
+                        A simulated ISP network environment built in Cisco
+                        Packet Tracer demonstrating VLANs, inter-VLAN routing,
+                        OSPF, DHCP, NAT/PAT and practical troubleshooting.
+                    </p>
+
+                    <div class="tags">
+
+                        <span class="tag">Cisco Packet Tracer</span>
+                        <span class="tag">VLANs</span>
+                        <span class="tag">OSPF</span>
+                        <span class="tag">DHCP</span>
+                        <span class="tag">NAT/PAT</span>
+                        <span class="tag">Troubleshooting</span>
+
+                    </div>
+
+                    <a
+                        href="projects/isp-customer-network/index.html"
+                        class="project-btn"
+                    >
+                        View Full Project →
+                    </a>
+
+                </article>
+
+
+                <!-- PROJECT 2 -->
+                <article class="project-card">
+
+                    <div class="project-icon">
+                        🤖
+                    </div>
+
+                    <h3>
+                        ISP Appointment Booking & Technician Assignment
+                    </h3>
+
+                    <p>
+                        An n8n workflow automation system that processes
+                        appointment information, collects technician data,
+                        matches skills and availability, updates bookings,
+                        and sends automated Gmail notifications.
+                    </p>
+
+                    <div class="tags">
+
+                        <span class="tag">n8n</span>
+                        <span class="tag">Google Sheets</span>
+                        <span class="tag">Gmail</span>
+                        <span class="tag">Automation</span>
+                        <span class="tag">Conditional Logic</span>
+                        <span class="tag">Technician Matching</span>
+
+                    </div>
+
+                    <a
+                        href="projects/isp-appointment-booking/index.html"
+                        class="project-btn"
+                    >
+                        View Full Project →
+                    </a>
+
+                </article>
+
+
+            </div>
+
         </div>
 
-        <div class="feature">
-          ✅ NAT/PAT
+    </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact">
+
+        <div class="container">
+
+            <div class="contact-box">
+
+                <h2>Let's Connect</h2>
+
+                <p>
+                    Interested in networking, automation or technology
+                    projects? Explore my work on GitHub.
+                </p>
+
+                <a
+                    href="https://github.com/josephautomationke"
+                    target="_blank"
+                    class="btn btn-primary"
+                >
+                    Visit GitHub →
+                </a>
+
+            </div>
+
         </div>
 
-        <div class="feature">
-          ✅ ACL Troubleshooting
-        </div>
+    </section>
 
-        <div class="feature">
-          ✅ Connectivity Diagnostics
-        </div>
-
-        <div class="feature">
-          ✅ Cisco Packet Tracer
-        </div>
-
-      </div>
-
-
-      <div class="screenshots">
-
-        <img
-          src="./projects/isp-customer-network/screenshots/ospf%20in%20router.png"
-          alt="OSPF router configuration"
-        >
-
-        <img
-          src="./projects/isp-customer-network/screenshots/inter%20vlan%20routing%20router.png"
-          alt="Inter VLAN routing configuration"
-        >
-
-        <img
-          src="./projects/isp-customer-network/screenshots/NAT%20configuration.png"
-          alt="NAT configuration"
-        >
-
-        <img
-          src="./projects/isp-customer-network/screenshots/switch%20vlan%20brief.png"
-          alt="Switch VLAN configuration"
-        >
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
+</main>
 
 
 <footer>
 
-  <h2>
-    ⚡ Joseph Njuguna
-  </h2>
+    <div class="container">
 
-  <p>
-    Network & Automation Engineer • Troubleshooting • Operations • Reliability
-  </p>
+        <p>
+            © 2026 Joseph Automation. Networking & Automation Portfolio.
+        </p>
 
-  <p style="margin-top:15px;">
-    GitHub:
-    <a
-      href="https://github.com/josephautomationke"
-      target="_blank"
-      rel="noopener noreferrer"
-      style="color:#60a5fa;text-decoration:none;"
-    >
-      github.com/josephautomationke
-    </a>
-  </p>
+    </div>
 
 </footer>
-
-
-<script>
-
-function toggleTheme() {
-  document.body.classList.toggle('light');
-}
-
-</script>
 
 </body>
 </html>
